@@ -11,7 +11,7 @@ import SwiftUI
 
 
 struct CharityDonationsView: View {
-    @State private var numItems = 0
+    @State private var numItems : Int = 1
     let columns = [ //each row will have 3 items
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -47,7 +47,6 @@ struct CharityDonationsView: View {
             
             NavigationStack{
                 
-                HStack {
                     //makes the page scrollable
                     ScrollView {
                         //makes a grid for all the items using columns array abovec
@@ -88,7 +87,8 @@ struct CharityDonationsView: View {
                                 }
                                 .padding(0)
                                 .frame(width: 118.60858, height: 163.57477, alignment: .center)
-                                .background(.lightPurple)
+                                .background(.white)
+
                                 
                                 
                                 .border(Color.gray)
@@ -98,7 +98,7 @@ struct CharityDonationsView: View {
                     }
                     .background(.lightPurple)
                     
-                }
+                
                 
             }
             
@@ -114,7 +114,7 @@ struct CharityDonationsView: View {
         .padding()
         
         .background(Color(red: 0.87, green: 0.87, blue: 1))
-        
+       // createListing(numItems: $numItems)
     }
     
 }

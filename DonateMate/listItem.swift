@@ -15,7 +15,35 @@ import SwiftUI
 struct listItem: View {
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+
+        VStack (alignment: .leading){
+            Text("List Item")
+                .font(.title)
+            NavigationLink(destination: createListing(numItems: .constant(0))) {
+                    Image("plus")
+                    
+                        .resizable()
+                        .scaledToFit()
+                        .padding(100)
+
+                    
+                }
+            
+            
+            Text("Your Listings")
+                .font(.title2)
+            Spacer()
+                .background(Color.lightPurple)
+                
+            }
+        .padding()
+        .background(Color.lightPurple)
+
+        }
+        
+
+        
     }
 }
 
