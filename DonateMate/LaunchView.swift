@@ -8,10 +8,11 @@ import SwiftUI
 
 struct LaunchView: View {
     var body: some View {
-        AutoScroller(imageNames: ["iron", "lamp", "fridge", "microwave"])
+        NavigationStack {
+            AutoScroller(imageNames: ["iron", "lamp", "fridge", "microwave"])
+        }
     }
 }
-
 struct AutoScroller: View {
     @State private var message = ""
     var imageNames: [String]
@@ -27,7 +28,7 @@ struct AutoScroller: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack { // Controls spacing between main sections
+            VStack {
                 // Logo Section
                 Image("logowithquote")
                     .resizable()
@@ -37,9 +38,6 @@ struct AutoScroller: View {
                 // Carousel + Question + Buttons in one VStack
                 VStack(spacing: sectionSpacing) {
                     ZStack {
-                        // Background Color
-                        Color.lightPurple.ignoresSafeArea()
-                        
                         // Image Carousel
                         TabView(selection: $selectedImageIndex) {
                             ForEach(0..<imageNames.count, id: \.self) { index in
@@ -71,21 +69,20 @@ struct AutoScroller: View {
                             selectedImageIndex = (selectedImageIndex + 1) % imageNames.count
                         }
                     }
-
                     // Question Text
                     Text("How do you identify yourself?")
                         .font(.system(size: 24, weight: .heavy))
                         .foregroundColor(.darkPurple)
-                        .padding(-10)
+                        .padding(-5)
 
                     // Buttons Section
                     HStack(spacing: buttonPadding) {
-                        Button(action: {}) {
+                        NavigationLink(destination: CharityDonationsView()) {
                             Image("donatorButton")
                                 .resizable()
                                 .scaledToFit()
                         }
-                        Button(action: {}) {
+                        NavigationLink(destination: CharityDonationsView()) {
                             Image("charityButton")
                                 .resizable()
                                 .scaledToFit()
@@ -97,12 +94,10 @@ struct AutoScroller: View {
                     .frame(height: 140)
                 }
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
             .background(Color.lightPurple.ignoresSafeArea())
         }
     }
 }
-
 #Preview {
     LaunchView()
 }

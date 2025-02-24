@@ -12,7 +12,7 @@ struct OnboardView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 0.3, green: 0.13, blue: 0.7) // Ensures no white border
+                Color(red: 0.3, green: 0.13, blue: 0.7)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -26,11 +26,11 @@ struct OnboardView: View {
                     Spacer()
                 }
                 
-                // Centered Loading Indicator
+                //Loading Indicator
                 VStack {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .scaleEffect(1.5) // Makes it slightly larger
+                        .scaleEffect(1.5)
                     
                     Text("Loading...")
                         .font(.system(size: 16, weight: .medium))
@@ -46,7 +46,7 @@ struct OnboardView: View {
                 }
             }
             .fullScreenCover(isPresented: $isActive) {
-                LaunchView() // Replaces OnboardView completely
+                LaunchView() // Replaces OnboardView completely after navigating
             }
         }
     }
