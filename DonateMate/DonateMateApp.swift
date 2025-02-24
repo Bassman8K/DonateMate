@@ -11,7 +11,29 @@ import SwiftUI
 struct DonateMateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                Tab {
+                    CharityDonationsView()
+                } label: {
+                    
+                    Image(systemName: "truck.box.fill")
+                    Text("Jobs")
+                    
+                }
+                Tab {
+                    recipientsView()
+                } label: {
+                    Image(systemName: "person.3")
+                    Text("Recipients")
+                    
+                }
+                
+                
+                
+                
+            }
+            
         }
+
     }
 }
