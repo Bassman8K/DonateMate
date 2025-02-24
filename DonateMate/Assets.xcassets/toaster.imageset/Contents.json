@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "this-toaster-in-my-hotel-room-yes-its-pressed-down-yes-its-v0-2ifanqojonhc1.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
