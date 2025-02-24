@@ -11,63 +11,120 @@ import SwiftUI
 
 
 struct CharityDonationsView: View {
-    @State var numItems = 3
+    @State private var numItems = 0
+    let columns = [ //each row will have 3 items
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
+    let defaultItems: [(String, String, String)] = [
+        ("Vacuum cleaner", "vacuum", "3km"),
+        ("Toaster", "toaster", "4.2km"),
+        ("Chair", "chair", "1.5km"),
+        ("Lamp", "lamp", "5.3km"),
+        ("Microwave", "microwave", "2km"),
+        ("Cutting board", "cutting board", "3.8km"),
+        ("Couch", "couch", "4.6km"),
+        ("Trash can", "trash can", "1.2km"),
+        ("Iron", "iron", "2.7km"),
+        ("Fridge", "fridge", "5km")
+    ]
+    
+    @State private var defaultItemArrayIndex = 1
     var body: some View {
-        ZStack {
-          
-                
-            Text("Home")
-              .font(
-                Font.custom("Work Sans", size: 24)
-                  .weight(.bold)
-              )
-              .kerning(0.16)
-              .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
-
+        VStack (alignment: .leading){
+            
+            Text("Pickups")
+                .font(
+                    Font.custom("SF Pro Display", size: 30)
+                        .weight(.bold)
+                )
+                .kerning(0.6)
+                .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
+                .frame(width: 136, alignment: .topLeading)
+            
             
             NavigationStack{
-
-            HStack {
-                ForEach(0..<numItems) { item in
-                    VStack(alignment: .center, spacing: 0) { Image("couch")
-                            .resizable()
-                        NavigationLink("Couch") {
-                            itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                
+                HStack {
+                    ForEach(0..<numItems, id: \.self) { item in
+                        VStack(alignment: .center, spacing: 0) { Image("couch")
+                                .resizable()
+                            NavigationLink("Couch") {
+                                itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                
+                                HStack {
+                                    //makes the page scrollable
+                                    ScrollView {
+                                        //makes a grid for all the items using columns array abovec
+                                        LazyVGrid(columns: columns, spacing: 20) {
+                                            /*
+                                             generate default items by iterating through the tuple array
+                                             */
+                                            ForEach(defaultItems, id: \.0) { item, image, distance in
+                                                VStack(alignment: .center, spacing: 0) {
+                                                    Image(image)
+                                                        .resizable()
+                                                    //make navigation link that leads to itemDetails page
+                                                    NavigationLink(item) {
+                                                        itemDetails(itemName: item, itemImage: image, itemDistance: distance)
+                                                    }
+                                                    Text(distance)
+                                                }
+                                                //frame of the item element
+                                                .frame(width: 118.60858, height: 163.57477, alignment: .center)
+                                                .background(.white)
+                                                
+                                                
+                                                .border(Color.gray)
+                                                
+                                                
+                                            }
+                                            
+                                            /*
+                                             generate additional items  through same method
+                                             */
+                                            ForEach(0..<numItems, id: \.self) { item in
+                                                VStack(alignment: .center, spacing: 0) { Image("couch")
+                                                        .resizable()
+                                                    NavigationLink("Couch") {
+                                                        itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                                    }
+                                                    Text("3km Away")
+                                                }
+                                                .padding(0)
+                                                .frame(width: 118.60858, height: 163.57477, alignment: .center)
+                                                .background(.lightPurple)
+                                                
+                                                
+                                                .border(Color.gray)
+                                                
+                                            }
+                                        }
+                                    }
+                                    .background(.lightPurple)
+                                    
+                                }
+                                
+                            }
+                            
+                            
+                            
+                            //temporary button for adding additional items
+                            Button("add") {
+                                numItems += 1
+                                print(numItems)
+                            }
+                            
                         }
-                        Text("3km Away")
-                    }
-                    .padding(0)
-                    .frame(width: 118.60858, height: 123.57477, alignment: .center)
-                    .background(Color(red: 0.94, green: 0.94, blue: 0.94))
-                    .cornerRadius(8)
-                    .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                    .inset(by: 1)
-                    .stroke(Color(red: 0.69, green: 0.69, blue: 0.71), lineWidth: 2)
-                    )
-                    
-                    .frame(width: 120, height: 80, alignment: .topLeading)
-                    .border(Color.gray)
-
+                        .padding()
+                        
+                        .background(Color(red: 0.87, green: 0.87, blue: 1))
+                        
                     }
                 }
             }
         }
-        .frame(width: 393, height: 852)
-        .background(.white)
-        
-                
-        Button("add") {
-            numItems += 1
-            print(numItems)
-        }
-        
-        
-        .padding()
     }
-}
-
-#Preview {
-    CharityDonationsView()
 }

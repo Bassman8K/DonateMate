@@ -12,20 +12,58 @@ struct itemDetails: View {
     let itemName: String
     let itemImage: String
     let itemDistance: String
+    
+    @State private var recipient = "Ava Johnson"
+    let recipients  = [
+        "Ava Johnson",
+        "Leo Matthews",
+        "Mia Harper",
+        "Ethan Brooks",
+        "Olivia Carter",
+        "Lucas Davis",
+        "Margaret Locke",
+        "Noah Anderson",
+        "Isabella Turner",
+        "Benjamin Gray"
+    ]
     var body: some View {
-        Form {
-            Section {
+        VStack {
+            VStack (alignment: .leading){
                 Image(itemImage)
                     .resizable()
-                    .frame(width: 200, height: 200)
+                    .scaledToFit()
+                
+                
+                Text(itemName)
+                    .font(.largeTitle)
+                Text(itemDistance)
+                    .font(.title2)
+                VStack (alignment: .center){
+                    Text("Choose a recipient")
+                    Picker("Choose a recipient", selection: $recipient) {
+                        ForEach(recipients, id: \.self) { recipient in
+                            Text(recipient)
+                        }
+                        
+                    }
+                    
+                }
+                .padding()
+                .background(.white)
+                
+                .pickerStyle(MenuPickerStyle())
+
+
+                Spacer()
             }
             
-            Text(itemName)
-                .font(.title)
-            Text(itemDistance)
+            .padding()
+
         }
-        
+        .background(Color(red: 0.87, green: 0.87, blue: 1))
+
     }
+    
 }
 
 #Preview {

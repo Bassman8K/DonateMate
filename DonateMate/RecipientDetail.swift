@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct recipientDetail: View {
+struct RecipientDetail: View {
     let recipient :String
     var body: some View {
         Form {
@@ -25,5 +25,5 @@ struct recipientDetail: View {
 }
 
 #Preview {
-    recipientDetail(recipient: "Margaret")
+    RecipientDetail(recipient: "Margaret")
 }
