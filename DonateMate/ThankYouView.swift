@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ThankYouView: View {
     var body: some View {
-        Text("Thank You")
+        ZStack {
+            Color("lightPurple")
+                .ignoresSafeArea()
+            Text("Thank you Donor")
+                .fontWeight(.bold)
+                .font(.largeTitle)
+                .foregroundStyle(.white)
+                
+        }
     }
 }
 
