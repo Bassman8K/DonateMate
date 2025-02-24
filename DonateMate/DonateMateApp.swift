@@ -11,9 +11,8 @@ import SwiftUI
 struct DonateMateApp: App {
     var body: some Scene {
         WindowGroup {
-<<<<<<< HEAD
             OnboardView()
-=======
+
             TabView {
                 Tab {
                     CharityDonationsView()
@@ -36,7 +35,6 @@ struct DonateMateApp: App {
                 
             }
             
->>>>>>> dev
         }
 
     }

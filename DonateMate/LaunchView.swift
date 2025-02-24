@@ -9,7 +9,16 @@ import SwiftUI
 
 struct LaunchView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("logowithquote")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
+            
+            Spacer()
+            
+        }
+        .foregroundStyle(.LightPur
     }
 }
 
