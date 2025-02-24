@@ -18,7 +18,7 @@ struct LaunchView: View {
             Spacer()
             
         }
-        .foregroundStyle(Color(red: 0.87, green: 0.87, blue: 1))
+        .foregroundStyle(.LightPur
     }
 }
 
