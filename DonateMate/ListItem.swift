@@ -12,7 +12,7 @@
 
 import SwiftUI
 
-struct listItem: View {
+struct ListItem: View {
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -20,5 +20,5 @@ struct listItem: View {
 }
 
 #Preview {
-    listItem()
+    ListItem()
 }
