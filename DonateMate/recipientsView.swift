@@ -9,7 +9,16 @@ import SwiftUI
 
 struct recipientsView: View {
     let recipients = [
-        "Patrick", "Trivesh", "Mansib", "Aryan", "Anushka", "Zhilin", "Linda", "Tanay", "Elly", "Noor", "Oscar", "Lucy", "Steve", "Allwin", "Abhijeet", "Amogh", "Yana", "Tilly", "Donovan", "Kerlyn", "Mira", "David", "Annie", "Sara", "Jonathan", "Akansha"
+        "Ava Johnson",
+        "Leo Matthews",
+        "Mia Harper",
+        "Ethan Brooks",
+        "Olivia Carter",
+        "Lucas Davis",
+        "Margaret Locke",
+        "Noah Anderson",
+        "Isabella Turner",
+        "Benjamin Gray"
     ]
     var body: some View {
         NavigationStack {

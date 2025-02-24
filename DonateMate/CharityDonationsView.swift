@@ -33,80 +33,90 @@ struct CharityDonationsView: View {
     
     @State private var defaultItemArrayIndex = 1
     var body: some View {
-        
-        
-        Text("Home")
-            .font(
-                Font.custom("Work Sans", size: 24)
-                    .weight(.bold)
-            )
-            .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
-        
-        
-        NavigationStack{
+        VStack (alignment: .leading){
             
-            HStack {
-                //makes the page scrollable
-                ScrollView {
-                    //makes a grid for all the items using columns array abovec
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        /*
-                         generate default items by iterating through the tuple array
-                         */
-                        ForEach(defaultItems, id: \.0) { item, image, distance in
-                            VStack(alignment: .center, spacing: 0) {
-                                Image(image)
-                                    .resizable()
+            Text("Pickups")
+                .font(
+                    Font.custom("SF Pro Display", size: 30)
+                        .weight(.bold)
+                )
+                .kerning(0.6)
+                .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
+                .frame(width: 136, alignment: .topLeading)
+            
+            
+            NavigationStack{
+                
+                HStack {
+                    //makes the page scrollable
+                    ScrollView {
+                        //makes a grid for all the items using columns array abovec
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            /*
+                             generate default items by iterating through the tuple array
+                             */
+                            ForEach(defaultItems, id: \.0) { item, image, distance in
+                                VStack(alignment: .center, spacing: 0) {
+                                    Image(image)
+                                        .resizable()
                                     //make navigation link that leads to itemDetails page
-                                NavigationLink(item) {
-                                    itemDetails(itemName: item, itemImage: image, itemDistance: distance)
+                                    NavigationLink(item) {
+                                        itemDetails(itemName: item, itemImage: image, itemDistance: distance)
+                                    }
+                                    Text(distance)
                                 }
-                                Text(distance)
+                                //frame of the item element
+                                .frame(width: 118.60858, height: 163.57477, alignment: .center)
+                                .background(.white)
+                                
+                                
+                                .border(Color.gray)
+                                
+                                
                             }
-                            //frame of the item element
-                            .frame(width: 118.60858, height: 163.57477, alignment: .center)
-                            .background(Color(red: 0.94, green: 0.94, blue: 0.94))
                             
-                            
-                            .border(Color.gray)
-                            
-                        }
-                        
-                        /*
-                         generate additional items  through same method
-                         */
-                        ForEach(0..<numItems, id: \.self) { item in
-                            VStack(alignment: .center, spacing: 0) { Image("couch")
-                                    .resizable()
-                                NavigationLink("Couch") {
-                                    itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                            /*
+                             generate additional items  through same method
+                             */
+                            ForEach(0..<numItems, id: \.self) { item in
+                                VStack(alignment: .center, spacing: 0) { Image("couch")
+                                        .resizable()
+                                    NavigationLink("Couch") {
+                                        itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                    }
+                                    Text("3km Away")
                                 }
-                                Text("3km Away")
+                                .padding(0)
+                                .frame(width: 118.60858, height: 163.57477, alignment: .center)
+                                .background(.lightPurple)
+                                
+                                
+                                .border(Color.gray)
+                                
                             }
-                            .padding(0)
-                            .frame(width: 118.60858, height: 163.57477, alignment: .center)
-                            .background(Color(red: 0.94, green: 0.94, blue: 0.94))
-                            
-                            
-                            .border(Color.gray)
-                            
                         }
                     }
+                    .background(.lightPurple)
+                    
                 }
+                
             }
+            
+            
+            
+            //temporary button for adding additional items
+            Button("add") {
+                numItems += 1
+                print(numItems)
+            }
+            
         }
-        
-        .background(.white)
-        
-        //temporary button for adding additional items
-        Button("add") {
-            numItems += 1
-            print(numItems)
-        }
-        
-        
         .padding()
+        
+        .background(Color(red: 0.87, green: 0.87, blue: 1))
+        
     }
+    
 }
 
 #Preview {
