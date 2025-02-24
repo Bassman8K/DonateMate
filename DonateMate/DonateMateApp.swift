@@ -11,6 +11,8 @@ import SwiftUI
 struct DonateMateApp: App {
     var body: some Scene {
         WindowGroup {
+            OnboardView()
+
             TabView {
                 Tab {
                     CharityDonationsView()
