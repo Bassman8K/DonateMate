@@ -13,7 +13,7 @@ struct DonateMateApp: App {
         WindowGroup {
             OnboardView()
 
-            TabView {
+          /*  TabView {
                 Tab {
                     CharityDonationsView()
                 } label: {
@@ -26,7 +26,7 @@ struct DonateMateApp: App {
                     RecipientView()
                 } label: {
                     Image(systemName: "person.3")
-                    Text("Recipients")
+                    Text("Recipients")*/
                     
                 }
                 
@@ -37,6 +37,5 @@ struct DonateMateApp: App {
             
         }
 
-    }
-}
+    
 
