@@ -9,9 +9,21 @@ import SwiftUI
 
 struct CommunityView: View {
     var body: some View {
-        VStack {
+        ZStack {
+            Color.lightPurple.edgesIgnoringSafeArea(.all)
+            VStack {
+                HStack(alignment: .top) {
+                    Image("cornerlogo")
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                        
+                }
+                
+            }
+            
             
         }
+
+        
     }
 }
 

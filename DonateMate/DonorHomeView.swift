@@ -15,8 +15,6 @@ struct DonorHomeView: View {
             VStack(alignment: .center) {
                 HStack(alignment: .center, spacing: 0) {
                     Image("Vector 9")
-                    
-                    
                         .background(Color.lightPurple)
                         .foregroundStyle(.lightPurple)
                         .font(.largeTitle)

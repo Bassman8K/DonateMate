@@ -13,7 +13,9 @@ struct DonorInputView: View {
         VStack {
             PhotosPicker(selection: $imageItem,
                          matching: .images) {
-                Text("Select Multiple Photos")
+                Image("Add Item")
+                    .frame(width: 119, height: 119)
+                    .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.2), radius: 2.27099, x: -2.72519, y: 4.54198)
             }
             
         }
