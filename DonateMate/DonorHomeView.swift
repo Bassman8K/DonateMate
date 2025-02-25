@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DonorHomeView: View {
     @State var user: String = "Sally"
+    let item: [Listing] = [Listing(name: "Grey Couch", date: , imageName: "Rectangle 1"), Listing(name: <#T##String#>, date: <#T##Date#>, imageName: <#T##String#>)]
     var body: some View {
         ZStack() {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
@@ -39,11 +40,10 @@ struct DonorHomeView: View {
                 
                 
                 HStack {
-                    Text("Hi \(user)")
-                        .font(Font.custom("SF Pro Display", size: 33.09196))
-                        .kerning(0.66184)
-                        .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
-                        .frame(width: 133.94118, alignment: .topLeading)
+                    Text("Hi \(user),")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.darkPurple)
                     ZStack {
                         Text("Let's support the vulnerable\nAustralian communities!")
                             .font(Font.custom("SF Pro Display", size: 14.28146))
@@ -59,13 +59,11 @@ struct DonorHomeView: View {
                     .cornerRadius(15.12154)
                     .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.3), radius: 1.68017, x: 0, y: 3.36034)
                 }
+                Spacer()
                 
-                
-                
-                
-                
-                
+
             }
+            
         }
     }
 }

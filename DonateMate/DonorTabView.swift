@@ -9,24 +9,67 @@ import SwiftUI
 
 struct DonorTabView: View {
     var body: some View {
+//        TabView {
+//            Tab("Home", systemImage: "house.fill") {
+//                DonorHomeView()
+//            }
+//            Tab("PickMe", systemImage: "paperplane.fill") {
+//                DonorPickupView()
+//            }
+//            Tab("Connect", systemImage: "globe.americas.fill") {
+//                CommunityView()
+//            }
+//            Tab("Stars", systemImage: "star.fill") {
+//                DonorStarView()
+//                
+//            }
+//            Tab("Profile", systemImage: "person.fill") {
+//                DonorProfileView()
+//                
+//            }
+//        }
         TabView {
-            Tab("Home", systemImage: "house.fill") {
-                DonorHomeView()
+            NavigationStack {
+                DonorHomeView() // Home
             }
-            Tab("PickMe", systemImage: "paperplane.fill") {
-                DonorPickupView()
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
-            Tab("Connect", systemImage: "globe.americas.fill") {
-                CommunityView()
+            
+            NavigationStack {
+                DonorPickupView() // Pickup view
             }
-            Tab("Stars", systemImage: "star.fill") {
+            .tabItem {
+                Image(systemName: "paperplane.fill")
+                Text("PickMe")
+            }
+            
+            NavigationStack {
+                CommunityView() // Community View
+            }
+            .tabItem {
+                Image(systemName: "globe.americas.fill")
+                Text("Connect")
+            }
+            NavigationStack {
                 DonorStarView()
-                
             }
-            Tab("Profile", systemImage: "person.fill") {
+            .tabItem {
+                Image(systemName: "star.fill")
+                Text("Stars")
+            }
+            NavigationStack {
                 DonorProfileView()
-                
             }
+            .tabItem {
+                Image(systemName: "person.3.fill")
+                Text("Profile")
+            }
+        }
+        .tint(Color.white) // Makes selected icons/text white
+        .onAppear {
+            setTabBarColor() // Call function to set color when the view appears
         }
     }
 }
