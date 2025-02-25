@@ -7,9 +7,18 @@
 
 import SwiftUI
 
-struct recipientsView: View {
+struct RecipientView: View {
     let recipients = [
-        "Patrick", "Trivesh", "Mansib", "Aryan", "Anushka", "Zhilin", "Linda", "Tanay", "Elly", "Noor", "Oscar", "Lucy", "Steve", "Allwin", "Abhijeet", "Amogh", "Yana", "Tilly", "Donovan", "Kerlyn", "Mira", "David", "Annie", "Sara", "Jonathan", "Akansha"
+        "Ava Johnson",
+        "Leo Matthews",
+        "Mia Harper",
+        "Ethan Brooks",
+        "Olivia Carter",
+        "Lucas Davis",
+        "Margaret Locke",
+        "Noah Anderson",
+        "Isabella Turner",
+        "Benjamin Gray"
     ]
     var body: some View {
         NavigationStack {
@@ -17,7 +26,7 @@ struct recipientsView: View {
                 ForEach (recipients, id: \.self) { name in
                     HStack {
                         NavigationLink(name){
-                            recipientDetail(recipient: name)
+                            RecipientDetail(recipient: name)
                         }
                         .font(.title)
                     }
@@ -32,5 +41,5 @@ struct recipientsView: View {
 }
 
 #Preview {
-    recipientsView()
+    RecipientView()
 }

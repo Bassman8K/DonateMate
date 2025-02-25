@@ -23,7 +23,7 @@ struct DonateMateApp: App {
                     
                 }
                 Tab {
-                    recipientsView()
+                    RecipientView()
                 } label: {
                     Image(systemName: "person.3")
                     Text("Recipients")
@@ -39,3 +39,4 @@ struct DonateMateApp: App {
 
     }
 }
+
