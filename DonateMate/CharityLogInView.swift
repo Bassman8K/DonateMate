@@ -76,7 +76,7 @@ struct CharityLogInView: View {
                     .padding(5)
                 
                 // Sign In Button
-                NavigationLink(destination: CharityDonationsView()) {
+                NavigationLink(destination: CharityTabNav()) {
                     Text("Sign In")
                         .font(.title2)
                         .fontWeight(.semibold)
