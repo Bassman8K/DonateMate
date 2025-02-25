@@ -12,12 +12,17 @@ struct CommunityView: View {
         ZStack {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
             VStack {
-                HStack(alignment: .top) {
+                HStack {
+                    
+                    Spacer()
                     Image("cornerlogo")
-                        .frame(width: 100, height: 100, alignment: .topLeading)
-                        
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .padding()
                 }
-                
+                .padding(.top, 10)
+                Spacer()
             }
             
             

@@ -13,15 +13,9 @@ struct DonorPickupView: View {
             VStack {
                 HStack {
                     Text("Pickups")
-                        .font(
-                            Font.custom("SF Pro Display", size: 30)
-                                .weight(.bold)
-                        )
-                        .kerning(0.6)
-                        .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
-                        .frame(width: 136, alignment: .topLeading)
-                    Image("cornerlogo")
-                        .frame(maxWidth: 50, maxHeight: 50)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    Spacer()
                     
                 }
                 

@@ -30,6 +30,13 @@ struct DonorTabView: View {
         }
     }
 }
+func setTabBarColor() {
+    let appearance = UITabBarAppearance()
+    appearance.configureWithOpaqueBackground()
+    appearance.backgroundColor = UIColor(named: "darkPurple") // Uses the primary colour "darkPurple" from Assets
+    UITabBar.appearance().standardAppearance = appearance
+    UITabBar.appearance().scrollEdgeAppearance = appearance
+}
 
 #Preview {
     DonorTabView()
