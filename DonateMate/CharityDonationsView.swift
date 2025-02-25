@@ -6,32 +6,36 @@
 //
 
 import SwiftUI
-
+import Observation
 
 
 
 struct CharityDonationsView: View {
-    @State private var numItems : Int = 1
+    @State private var numItems : Int = 0
     let columns = [ //each row will have 3 items
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
-    let defaultItems: [(String, String, String)] = [
-        ("Vacuum cleaner", "vacuum", "3km"),
-        ("Toaster", "toaster", "4.2km"),
-        ("Chair", "chair", "1.5km"),
-        ("Lamp", "lamp", "5.3km"),
-        ("Microwave", "microwave", "2km"),
-        ("Cutting board", "cutting board", "3.8km"),
-        ("Couch", "couch", "4.6km"),
-        ("Trash can", "trash can", "1.2km"),
-        ("Iron", "iron", "2.7km"),
-        ("Fridge", "fridge", "5km")
+
+    let defaultDonations = [
+        Donation(name: "Vacuum cleaner", image: "vacuum", distance: "3km"),
+        Donation(name: "Toaster", image: "toaster", distance: "4.2km"),
+        Donation(name: "Chair", image: "chair", distance: "1.5km"),
+        Donation(name: "Lamp", image: "lamp", distance: "5.3km"),
+        Donation(name: "Microwave", image: "microwave", distance: "2km"),
+        Donation(name: "Cutting board", image: "cutting board", distance: "3.8km"),
+        Donation(name: "Couch", image: "couch", distance: "4.6km"),
+        Donation(name: "Trash can", image: "trash can", distance: "1.2km"),
+        Donation(name: "Iron", image: "iron", distance: "2.7km"),
+        Donation(name: "Fridge", image: "fridge", distance: "5km")
+        
     ]
+
     
     @State private var defaultItemArrayIndex = 1
+    @EnvironmentObject var newDonations: NewDonation
+
     var body: some View {
         VStack (alignment: .leading){
             
@@ -54,15 +58,15 @@ struct CharityDonationsView: View {
                             /*
                              generate default items by iterating through the tuple array
                              */
-                            ForEach(defaultItems, id: \.0) { item, image, distance in
+                            ForEach(defaultDonations, id: \.name) { donation in
                                 VStack(alignment: .center, spacing: 0) {
-                                    Image(image)
+                                    Image(donation.image)
                                         .resizable()
                                     //make navigation link that leads to itemDetails page
-                                    NavigationLink(item) {
-                                        itemDetails(itemName: item, itemImage: image, itemDistance: distance)
+                                    NavigationLink(donation.name) {
+                                        itemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
                                     }
-                                    Text(distance)
+                                    Text(donation.distance)
                                 }
                                 //frame of the item element
                                 .frame(width: 118.60858, height: 163.57477, alignment: .center)
@@ -77,13 +81,14 @@ struct CharityDonationsView: View {
                             /*
                              generate additional items  through same method
                              */
-                            ForEach(0..<numItems, id: \.self) { item in
-                                VStack(alignment: .center, spacing: 0) { Image("couch")
+                            ForEach(newDonations.donationArray, id: \.name) { donation in
+                                VStack(alignment: .center, spacing: 0) {
+                                    Image(donation.image)
                                         .resizable()
-                                    NavigationLink("Couch") {
-                                        itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                    NavigationLink(donation.name) {
+                                        itemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
                                     }
-                                    Text("3km Away")
+                                    Text(donation.distance)
                                 }
                                 .padding(0)
                                 .frame(width: 118.60858, height: 163.57477, alignment: .center)
@@ -121,4 +126,6 @@ struct CharityDonationsView: View {
 
 #Preview {
     CharityDonationsView()
+        .environmentObject(NewDonation())
+
 }

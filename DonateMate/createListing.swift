@@ -7,15 +7,22 @@
 
 import SwiftUI
 
+
+
 struct createListing: View {
-    @Binding var numItems: Int
     @State var selectedItems: [UIImage] = []
+    
+    @EnvironmentObject var newDonations: NewDonation
     var body: some View {
+        let donation = Donation(name: "Couch", image: "couch", distance: "3km")
         
         Button("add") {
-            numItems += 1
-            print(numItems)
-            print("hi")
+//            numItems += 1
+//            print(numItems)
+//            print("hi")
+            
+            newDonations.donationArray.append(donation)
+            
         }
         
 //        PhotosPicker(selection: $selectedItems,
@@ -28,5 +35,6 @@ struct createListing: View {
 
 #Preview {
     
-    createListing(numItems: .constant(3))
+    createListing()
+        .environmentObject(NewDonation())
 }

@@ -20,7 +20,7 @@ struct listItem: View {
         VStack (alignment: .leading){
             Text("List Item")
                 .font(.title)
-            NavigationLink(destination: createListing(numItems: .constant(0))) {
+            NavigationLink(destination: createListing()) {
                     Image("plus")
                     
                         .resizable()

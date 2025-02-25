@@ -7,7 +7,15 @@
 
 import SwiftUI
 
+class NewDonation : ObservableObject {
+    
+    @Published var donationArray: [Donation] = []
+}
+
 struct OnboardView: View {
+    
+    @StateObject var newDonations  = NewDonation()
+    
     var body: some View {
         VStack {
             
@@ -19,7 +27,15 @@ struct OnboardView: View {
                 .background(Color(red: 0.3, green: 0.13, blue: 0.7))
         }
         .padding()
+        VStack{
+            createListing()
+            CharityDonationsView()
+        }
+        .environmentObject(newDonations)
+
     }
+    
+    
 }
 
 #Preview {

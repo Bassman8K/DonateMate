@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct recipientDetail: View {
-    let recipient :String
+    let recipient: Recipient
     var body: some View {
         Form {
             Section {
-                Text(recipient)
+                Text(recipient.name)
                     .font(.title)
             }
             Text("Needs")
             Section{
-                Text("Couch")
+                Text(recipient.needs)
             }
+            Text(recipient.address)
             
         }
     }
 }
 
 #Preview {
-    recipientDetail(recipient: "Margaret")
+    recipientDetail(recipient: Recipient(name: "Margaret", needs: "Couch", address: "230 High Street, Prahran, VIC 3181"))
 }
