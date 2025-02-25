@@ -15,8 +15,13 @@ struct ThankYouView: View {
             Text("Thank you Donor")
                 .fontWeight(.bold)
                 .font(.largeTitle)
-                .foregroundStyle(.white)
-                
+                .foregroundStyle(.green)
+                .padding()
+                .frame(width: 300, height: 100)
+                .position(x: 150, y: 200)
+            
+            
+            
         }
     }
 }
