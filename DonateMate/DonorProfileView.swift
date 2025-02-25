@@ -29,6 +29,20 @@ struct DonorProfileView: View {
                 }
                 .padding(.top, 10)
                 Spacer()
+                HStack {
+                    Image(systemName: "person.fill")
+                        .frame(width: 42.02667, height: 42.02667)
+                    Text("My profile")
+                }
+                .padding(.top, 10)
+                Spacer()
+                HStack {
+                    Image(systemName: "")
+                        .frame(width: 42.02667, height: 42.02667)
+                    Text("My profile")
+                }
+                
+                
                 
                 
             }

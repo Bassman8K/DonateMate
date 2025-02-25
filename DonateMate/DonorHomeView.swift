@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DonorHomeView: View {
     @State var user: String = "Sally"
-    let item: [Listing] = [Listing(name: "Grey Couch", date: , imageName: "Rectangle 1"), Listing(name: <#T##String#>, date: <#T##Date#>, imageName: <#T##String#>)]
     var body: some View {
         ZStack() {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
@@ -60,7 +59,6 @@ struct DonorHomeView: View {
                     .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.3), radius: 1.68017, x: 0, y: 3.36034)
                 }
                 Spacer()
-                
 
             }
             
