@@ -14,14 +14,15 @@ struct DonateMateApp: App {
     var body: some Scene {
         WindowGroup {
             OnboardView()
-                .environmentObject(NewDonation())
+//                .environmentObject(NewDonation())
 
             CharityDonationsView()
+//                .environmentObject(NewDonation())
 
             TabView {
                 Tab {
                     CharityDonationsView()
-                        .environmentObject(NewDonation())
+//                        .environmentObject(NewDonation())
 
                 } label: {
                     
@@ -43,6 +44,8 @@ struct DonateMateApp: App {
             }
             
         }
+        .environmentObject(NewDonation())
+
 
     }
 }
