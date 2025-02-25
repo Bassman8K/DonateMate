@@ -14,7 +14,6 @@ struct OnboardView: View {
             ZStack {
                 Color(red: 0.3, green: 0.13, blue: 0.7)
                     .ignoresSafeArea()
-                
                 VStack {
                     Spacer()
                     
@@ -25,7 +24,6 @@ struct OnboardView: View {
                     
                     Spacer()
                 }
-                
                 //Loading Indicator
                 VStack {
                     ProgressView()
@@ -54,3 +52,4 @@ struct OnboardView: View {
 #Preview {
     OnboardView()
 }
+

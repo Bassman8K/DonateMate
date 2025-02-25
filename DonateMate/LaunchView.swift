@@ -77,7 +77,7 @@ struct AutoScroller: View {
 
                     // Buttons Section
                     HStack(spacing: buttonPadding) {
-                        NavigationLink(destination: CharityDonationsView()) {
+                        NavigationLink(destination: DonorSignInView()) {
                             Image("donatorButton")
                                 .resizable()
                                 .scaledToFit()
