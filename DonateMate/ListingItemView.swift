@@ -1,13 +1,13 @@
 //
-//  CommunityView.swift
+//  ListingItemView.swift
 //  DonateMate
 //
-//  Created by Jonathan Edwin on 24/02/2025.
+//  Created by Jonathan Edwin on 25/02/2025.
 //
 
 import SwiftUI
 
-struct CommunityView: View {
+struct ListingItemView: View {
     var body: some View {
         VStack {
             
@@ -16,5 +16,5 @@ struct CommunityView: View {
 }
 
 #Preview {
-    CommunityView()
+    ListingItemView()
 }
