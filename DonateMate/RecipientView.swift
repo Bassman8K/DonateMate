@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct recipientsView: View {
+struct RecipientView: View {
     let recipients = [
         Recipient(name: "Ava Johnson", needs: "Vacuum cleaner", address: "12 Collins Street, Melbourne, VIC 3000"),
         Recipient(name: "Leo Matthews", needs: "Toaster", address: "45 Fitzroy Street, St Kilda, VIC 3182"),
@@ -46,5 +46,5 @@ struct recipientsView: View {
 }
 
 #Preview {
-    recipientsView()
+    RecipientView()
 }

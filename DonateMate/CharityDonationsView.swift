@@ -64,17 +64,10 @@ struct CharityDonationsView: View {
                                         .resizable()
                                     //make navigation link that leads to itemDetails page
                                     NavigationLink(donation.name) {
-                                        itemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
+                                        ItemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
                                     }
                                     Text(donation.distance)
                                 }
-                                //frame of the item element
-                                .frame(width: 118.60858, height: 163.57477, alignment: .center)
-                                .background(.white)
-                                
-                                
-                                .border(Color.gray)
-                                
                                 
                             }
                             
@@ -86,7 +79,7 @@ struct CharityDonationsView: View {
                                     Image(donation.image)
                                         .resizable()
                                     NavigationLink(donation.name) {
-                                        itemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
+                                        ItemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance)
                                     }
                                     Text(donation.distance)
                                 }
@@ -99,22 +92,18 @@ struct CharityDonationsView: View {
                                 .border(Color.gray)
                                 
                             }
+                            
                         }
+                        .padding()
+                        
+                        .background(Color(red: 0.87, green: 0.87, blue: 1))
+                        
                     }
                     .background(.lightPurple)
                     
                 
                 
             }
-            
-            
-            
-            //temporary button for adding additional items
-            Button("add") {
-                numItems += 1
-                print(numItems)
-            }
-            
         }
         .padding()
         
