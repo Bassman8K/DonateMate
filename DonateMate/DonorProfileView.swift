@@ -35,17 +35,32 @@ struct DonorProfileView: View {
                     Text("My profile")
                 }
                 .padding(.top, 10)
-                Spacer()
+
                 HStack {
-                    Image(systemName: "")
+                    Image(systemName: "ellipsis.message.fill")
                         .frame(width: 42.02667, height: 42.02667)
-                    Text("My profile")
+                    Text("Settings")
                 }
-                
-                
-                
-                
+
+                HStack {
+                    Image(systemName: "ellipsis.message.fill")
+                        .frame(width: 42.02667, height: 42.02667)
+                    Text("Settings")
+                }
+                HStack {
+                    Image(systemName: "text.page.fill")
+                        .frame(width: 42.02667, height: 42.02667)
+                    Text("Settings")
+                }
+                HStack {
+                    Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+                        .frame(width: 42.02667, height: 42.02667)
+                    Text("Settings")
+                }
+                Spacer()
+                Spacer()
             }
+            .frame(alignment: .topLeading)
         }
     }
 }
