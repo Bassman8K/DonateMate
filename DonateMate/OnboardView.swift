@@ -54,12 +54,12 @@ struct OnboardView: View {
                 LaunchView() // Replaces OnboardView completely after navigating
             }
         }
-        .padding()
-        VStack{
-            createListing()
-            CharityDonationsView()
-        }
-        .environmentObject(newDonations)
+//        .padding()
+//        VStack{
+//            createListing()
+//            CharityDonationsView()
+//        }
+//        .environmentObject(newDonations)
 
     }
     
