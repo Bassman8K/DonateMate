@@ -62,21 +62,21 @@ struct ThankYouView: View {
                             .cornerRadius(10)
                     }
                 } .scrollContentBackground(.hidden) //  Keeps the background styling clean
-                    // Section for Send Button
-                        Button(action: sendMessage) {
-                            Text("Send")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color("darkPurple"))
-                                .cornerRadius(10)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.horizontal)
-                        .padding(.top, -100)
+                // Section for Send Button
+                Button(action: sendMessage) {
+                    Text("Send")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color("darkPurple"))
+                        .cornerRadius(10)
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal)
+                .padding(.top, -100)
                 
-
+                
                 
             }
             .padding()
