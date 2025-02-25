@@ -82,7 +82,7 @@ struct AutoScroller: View {
                                 .resizable()
                                 .scaledToFit()
                         }
-                        NavigationLink(destination: CharityDonationsView()) {
+                        NavigationLink(destination: CharityLogInView()) {
                             Image("charityButton")
                                 .resizable()
                                 .scaledToFit()

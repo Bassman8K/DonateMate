@@ -1,5 +1,5 @@
 //
-//  DonorSignUpView.swift
+//  CharityLogInView.swift
 //  DonateMate
 //
 //  Created by Phan Le Hong Phuc on 25/2/2025.
@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct DonorSignUpView: View {
+struct CharityLogInView: View {
     @State private var userName: String = ""
-    @State private var eMail: String = ""
     @State private var password: String = ""
-    @State private var confirmPassword: String = ""
-
+    @State private var loginMessage: String = ""
+    
     var body: some View {
         ZStack {
             Color(red: 0.87, green: 0.87, blue: 1)
@@ -40,7 +39,6 @@ struct DonorSignUpView: View {
                 
                 Spacer()
             }
-
             // Top-right Logo
             VStack {
                 HStack {
@@ -54,29 +52,22 @@ struct DonorSignUpView: View {
                 .padding(.top, 10)
                 Spacer()
             }
-
+            
             // Login Form
             VStack(spacing: 10) {
-                Text("Sign In Your Account")
+                Text("Sign In Your Charity")
                     .font(.system(size: 30, weight: .heavy))
                     .foregroundColor(Color.darkPurple)
                     .frame(width: 350, height: 40, alignment: .top)
                     .padding(.top, -50)
-
+                
                 // Username Field
-                TextField("Username", text: $userName)
+                TextField("Staff Code", text: $userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 300)
                     .cornerRadius(10)
                     .padding(5)
                 
-                // Email
-                TextField("Email", text: $eMail)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 300)
-                    .cornerRadius(10)
-                    .padding(5)
-
                 // Password Field
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -84,13 +75,6 @@ struct DonorSignUpView: View {
                     .cornerRadius(10)
                     .padding(5)
                 
-                // Confirm Password Field
-                SecureField("Confirm Password", text: $confirmPassword)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 300)
-                    .cornerRadius(10)
-                    .padding(5)
-
                 // Sign In Button
                 NavigationLink(destination: LaunchView()) {
                     Text("Sign In")
@@ -104,22 +88,11 @@ struct DonorSignUpView: View {
                         .shadow(radius: 3)
                 }
                 .padding(.top, 10)
-            
-                Text("Have an account?")
-                    .opacity(0.5)
-                    .padding(.top, 10)
-
-                NavigationLink(destination: DonorSignInView()) {
-                    Text("Sign In")
-                        .foregroundColor(Color.darkPurple)
-                        .font(.title3)
-                        .fontWeight(.medium)
-                }
             }
         }
         .frame(width: 402, height: 874)
     }
 }
 #Preview {
-    DonorSignUpView()
+    CharityLogInView()
 }

@@ -77,14 +77,13 @@ struct DonorSignInView: View {
                     .padding(5)
 
                 // Sign In Button
-                
                 NavigationLink(destination: LaunchView()) {
                     Text("Sign In")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding()
-                        .frame(width: 150)
+                        .frame(width: 120)
                         .background(Color.darkPurple)
                         .cornerRadius(20)
                         .shadow(radius: 3)
