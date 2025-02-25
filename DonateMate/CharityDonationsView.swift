@@ -52,7 +52,7 @@ struct CharityDonationsView: View {
                         VStack(alignment: .center, spacing: 0) { Image("couch")
                                 .resizable()
                             NavigationLink("Couch") {
-                                itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                ItemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
                                 
                                 HStack {
                                     //makes the page scrollable
@@ -68,7 +68,7 @@ struct CharityDonationsView: View {
                                                         .resizable()
                                                     //make navigation link that leads to itemDetails page
                                                     NavigationLink(item) {
-                                                        itemDetails(itemName: item, itemImage: image, itemDistance: distance)
+                                                        ItemDetails(itemName: item, itemImage: image, itemDistance: distance)
                                                     }
                                                     Text(distance)
                                                 }
@@ -89,7 +89,7 @@ struct CharityDonationsView: View {
                                                 VStack(alignment: .center, spacing: 0) { Image("couch")
                                                         .resizable()
                                                     NavigationLink("Couch") {
-                                                        itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+                                                        ItemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
                                                     }
                                                     Text("3km Away")
                                                 }

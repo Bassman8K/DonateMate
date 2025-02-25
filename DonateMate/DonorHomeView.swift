@@ -12,14 +12,15 @@ struct DonorHomeView: View {
     var body: some View {
         ZStack() {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                HStack(alignment: .center) {
+            VStack(alignment: .center) {
+                HStack(alignment: .center, spacing: 0) {
                     Image("Vector 9")
                     
-                        .rotationEffect(Angle(degrees: 20.86))
+                    
                         .background(Color.lightPurple)
                         .foregroundStyle(.lightPurple)
                         .font(.largeTitle)
+                        .fontWeight(.bold)
                     Text("onate")
                         .font(
                             Font.custom("Feather", size: 37.55211)
@@ -60,14 +61,9 @@ struct DonorHomeView: View {
                     .cornerRadius(15.12154)
                     .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.3), radius: 1.68017, x: 0, y: 3.36034)
                 }
-                NavigationLink() {
-                    DonorPickupView()
-                    
-                } label: {
-                    Image("AddItemButton")
-                        .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.2), radius: 2.27099, x: -2.72519, y: 4.54198)
-                        .scaledToFit()
-                }
+                
+                
+                
                 
                 
                 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct itemDetails: View {
+struct ItemDetails: View {
     
     let itemName: String
     let itemImage: String
@@ -67,5 +67,5 @@ struct itemDetails: View {
 }
 
 #Preview {
-    itemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
+    ItemDetails(itemName: "Couch", itemImage: "couch", itemDistance: "3km")
 }

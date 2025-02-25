@@ -13,27 +13,27 @@ struct DonateMateApp: App {
         WindowGroup {
             OnboardView()
 
-            TabView {
-                Tab {
-                    CharityDonationsView()
-                } label: {
-                    
-                    Image(systemName: "truck.box.fill")
-                    Text("Jobs")
-                    
-                }
-                Tab {
-                    RecipientView()
-                } label: {
-                    Image(systemName: "person.3")
-                    Text("Recipients")
-                    
-                }
-                
-                
-                
-                
-            }
+//            TabView {
+//                Tab {
+//                    CharityDonationsView()
+//                } label: {
+//                    
+//                    Image(systemName: "truck.box.fill")
+//                    Text("Jobs")
+//                    
+//                }
+//                Tab {
+//                    RecipientView()
+//                } label: {
+//                    Image(systemName: "person.3")
+//                    Text("Recipients")
+//                    
+//                }
+//                
+//                
+//                
+//                
+//            }
             
         }
 

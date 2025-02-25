@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DonateMateTabView: View {
+struct DonorTabView: View {
     var body: some View {
         TabView {
             Tab("Home", systemImage: "house.fill") {
@@ -19,7 +19,12 @@ struct DonateMateTabView: View {
             Tab("Connect", systemImage: "globe.americas.fill") {
                 CommunityView()
             }
-            Tab("Stars", systemImage: "stars.fill") {
+            Tab("Stars", systemImage: "star.fill") {
+                DonorStarView()
+                
+            }
+            Tab("Profile", systemImage: "person.fill") {
+                DonorProfileView()
                 
             }
         }
@@ -27,5 +32,5 @@ struct DonateMateTabView: View {
 }
 
 #Preview {
-    DonateMateTabView()
+    DonorTabView()
 }
