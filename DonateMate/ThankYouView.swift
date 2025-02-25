@@ -11,12 +11,13 @@ struct ThankYouView: View {
     @State var text: String = "TextField Text"
     var body: some View {
         ZStack {
+            
             Color("darkPurple")
                 .ignoresSafeArea()
             Text("Thank you Donor")
                 .fontWeight(.bold)
                 .font(.largeTitle)
-                .foregroundStyle(.lightPurple)
+                .foregroundStyle(.yellow)
                 .padding()
                 .frame(width: 300, height: 100)
                 .position(x: 200, y: 90)
@@ -24,19 +25,18 @@ struct ThankYouView: View {
             VStack {
                 
                 
-                Image(systemName: "photo.badge.plus.fill")
-                    .font(.system(size: 100))
-                    .foregroundStyle(.white)
+                Image("Insert-Image")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 280, height: 220)
+                    .cornerRadius(20)
                     .padding()
+                
+                
+                
+                  
                     
-                Text(
-                    "Add up to two photos"
                
-                ).font(.caption)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .fontWeight(.bold)
-                    .italic()
                 
                 //Section<Text, Any, EmptyView> (header: Text("Write a thank you message to your donor").font(.title) {
                    // TextField("Margaret thanks you for your generous donation", text: .constant(""))
