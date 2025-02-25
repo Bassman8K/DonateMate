@@ -41,6 +41,13 @@ struct CharityTabNav: View {
                 Image(systemName: "person.3.fill")
                 Text("create listing")
             }
+            NavigationStack {
+                ListItem() // temporary
+            }
+            .tabItem {
+                Image(systemName: "person.3.fill")
+                Text("list item")
+            }
         }
         .tint(Color.white) // Makes selected icons/text white
         .onAppear {

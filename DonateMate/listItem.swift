@@ -22,40 +22,81 @@
 import SwiftUI
 
 struct ListItem: View {
+    @EnvironmentObject var newDonations: NewDonation
     
     var body: some View {
+        
         NavigationStack {
-
-        VStack (alignment: .leading){
+           // ScrollView {
+            
             Text("List Item")
                 .font(.title)
-            NavigationLink(destination: createListing()) {
-                    Image("plus")
+                VStack (alignment: .center){
+                   
+                    NavigationLink(destination: createListing()) {
+                        Image("plus")
+                        
+                            .resizable()
+                            .scaledToFit()
+                            .padding(70)
+                        
+                        
+                    }
                     
-                        .resizable()
-                        .scaledToFit()
-                        .padding(100)
+                    
+                    Text("Your Listings")
+                        .font(.title2)
+                    VStack {
+                        List {
 
+                        ForEach(newDonations.donationArray, id: \.uuid) { donation in
+                                HStack {
+                                    donation.image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                    Text(donation.name)
+                                }
+                                
+                            }
+                        }
+                    }
+                        
+//                        VStack {
+//                            
+//                            List {
+//                                HStack {
+//                                    Image("couch")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 50, height: 50)
+//                                    Text("Couch")
+//                                    
+//                                }
+//                                
+//                                
+//                                
+//                            }
+//                            
+//                        }
                     
+                    
+                    Spacer()
                 }
-            
-            
-            Text("Your Listings")
-                .font(.title2)
-            Spacer()
-                .background(Color.lightPurple)
                 
+                .padding()
+                .background(Color.lightPurple)
+
             }
-        .padding()
-        .background(Color.lightPurple)
 
         }
-        
-
-        
-    }
+            
+            
+        //}
+    
 }
 
 #Preview {
     ListItem()
+        .environmentObject(NewDonation())
 }
