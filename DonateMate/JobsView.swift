@@ -9,13 +9,13 @@ import SwiftUI
 
 struct JobsView: View {
     @State private var showThankYou = false // Controls the Thank You screen
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color("lightPurple")
                     .ignoresSafeArea()
-               
+                
                 VStack {
                     List {
                         
@@ -79,26 +79,26 @@ struct JobsView: View {
                                     .cornerRadius(12)
                             }
                             .padding(.top,8)
-                           
-                        }
-                        .padding(.vertical, 8)
-                                
                             
                         }
+                        .padding(.vertical, 8)
+                        
+                        
                     }
-                    .scrollContentBackground(.hidden)
-                    
                 }
-            }
-            .navigationTitle("Jobs")
-            .onAppear {
-                showThankYou = false
-            }
-            .fullScreenCover(isPresented: $showThankYou) {
-                ThankYouView()
+                .scrollContentBackground(.hidden)
                 
+            }
+        }
+        .navigationTitle("Jobs")
+        .onAppear {
+            showThankYou = false
+        }
+        .fullScreenCover(isPresented: $showThankYou) {
+            ThankYouView()
             
-           
+            
+            
         }
     }
 }
