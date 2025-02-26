@@ -9,30 +9,32 @@ import SwiftUI
 
 struct DonorInputSuccessfulView: View {
     var body: some View {
-        VStack {
-            Color.lightPurple.ignoresSafeArea(edges: .all)
-            HStack(alignment: .center, spacing: 0) {
-                Image("Vector 9")
-                    .background(Color.lightPurple)
-                    .foregroundStyle(.lightPurple)
-                    .font(.largeTitle)
+        ZStack {
+            VStack(alignment: .center) {
+                Image("horizontallogo")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.top, 10)
+                
+                Spacer()
+                Image("checksymbol")
+                    .resizable()
+                    .scaledToFit()
+                Spacer()
+                Spacer()
+                Text("Your donated item have been\nsuccessfully uploaded")
+                    .font(.title)
                     .fontWeight(.bold)
-                Text("onate")
-                    .font(
-                        Font.custom("Feather", size: 37.55211)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
-                
-                Image("Vector 8")
-                
-                    .rotationEffect(Angle(degrees: 6.25))
-                Text("ate")
-                    .font(
-                        Font.custom("Feather", size: 37.55211)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.2, green: 0.78, blue: 0.35))
+                    .foregroundStyle(.darkPurple)
+                NavigationStack {
+                    NavigationLink(destination: DonorTabView()) {
+                        Text("Go back home")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .foregroundStyle(.lightPurple)
+                    .background(.lightPurple)
+                    
+                }
             }
         }
         
