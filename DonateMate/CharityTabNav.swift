@@ -49,7 +49,7 @@ struct CharityTabNav: View {
                 Text("list item")
             }
         }
-        .tint(Color.white) // Makes selected icons/text white
+        //.tint(Color.white) // Makes selected icons/text white
         .onAppear {
             setTabBarColor() // Call function to set color when the view appears
         }
@@ -68,4 +68,6 @@ struct CharityTabNav: View {
 
 #Preview {
     CharityTabNav()
+        .environmentObject(NewDonation())
+
 }
