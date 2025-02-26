@@ -8,13 +8,16 @@ import PhotosUI
 import SwiftUI
 
 struct ThankYouView: View {
+   
     @State private var messageText: String = "Thank you for your donation!"
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
+    @Binding var showThankYou : Bool
     
     var body: some View {
         ZStack {
             
+        
             Color("lightPurple")
                 .ignoresSafeArea()
             VStack {
@@ -63,15 +66,22 @@ struct ThankYouView: View {
                     }
                 } .scrollContentBackground(.hidden) //  Keeps the background styling clean
                 // Section for Send Button
-                Button(action: sendMessage) {
-                    Text("Send")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color("darkPurple"))
-                        .cornerRadius(10)
-                }
+//                Button(action: showThankYou = false) {
+//                    Text("Send")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .frame(maxWidth: .infinity)
+//                        .padding()
+//                        .background(Color("darkPurple"))
+//                        .cornerRadius(10)
+//                }
+                
+                Button("Send", action: {
+                    showThankYou = false
+                    
+                })
+                
+                .buttonStyle(.borderedProminent)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal)
                 .padding(.top, -100)
@@ -91,5 +101,5 @@ struct ThankYouView: View {
 }
 
 #Preview {
-    ThankYouView()
+    ThankYouView(showThankYou: .constant(false))
 }

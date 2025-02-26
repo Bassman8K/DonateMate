@@ -95,7 +95,7 @@ struct JobsView: View {
             showThankYou = false
         }
         .fullScreenCover(isPresented: $showThankYou) {
-            ThankYouView()
+            ThankYouView(showThankYou: $showThankYou)
             
             
             
