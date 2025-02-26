@@ -11,6 +11,10 @@ class NewDonation : ObservableObject {
     
     @Published var donationArray: [Donation] = []
 }
+class NewThank : ObservableObject {
+    
+    @Published var thankArray: [ThankYou] = []
+}
 
 class NewPickup : ObservableObject {
     

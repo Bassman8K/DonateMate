@@ -16,38 +16,30 @@ struct DonateMateApp: App {
             OnboardView()
                 .environmentObject(NewDonation())
                 .environmentObject(NewPickup())
+                .environmentObject(NewThank())
+
 //                .environmentObject(NewDonation())
 
-//            CharityDonationsView()
-////                .environmentObject(NewDonation())
-//
-//            TabView {
-//                Tab {
-//                    CharityDonationsView()
-////                        .environmentObject(NewDonation())
-//
-//                } label: {
-//                    
-//                    Image(systemName: "truck.box.fill")
-//                    Text("Jobs")
-//                    
-//                }
-//                Tab {
-//                    RecipientView()
-//                } label: {
-//                    Image(systemName: "person.3")
-//                    Text("Recipients")
-//                    
-//                }
-//                
-//                
-//                
-//                
-//            }
+          /*  TabView {
+                Tab {
+                    CharityDonationsView()
+                } label: {
+                    
+                    Image(systemName: "truck.box.fill")
+                    Text("Jobs")
+                    
+                }
+                Tab {
+                    RecipientView()
+                } label: {
+                    Image(systemName: "person.3")
+                    Text("Recipients")*/
+                    
+                }
+                
+                
+                
+                
+            }
             
         }
-
-
-    }
-}
-

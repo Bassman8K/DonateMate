@@ -166,7 +166,45 @@
 					<key>payload</key>
 					<dict>
 						<key>relative-path</key>
-						<string>DonateMate/DonorSignUpView.swift</string>
+						<string>DonateMate/DonorPickupView.swift</string>
+					</dict>
+				</dict>
+				<key>type</key>
+				<string>DVTDocumentLocation</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>DonateMate/ThankYou.swift</string>
+					</dict>
+				</dict>
+				<key>type</key>
+				<string>DVTDocumentLocation</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>DonateMate/ThankYouView.swift</string>
 					</dict>
 				</dict>
 				<key>type</key>
@@ -204,7 +242,7 @@
 					<key>payload</key>
 					<dict>
 						<key>relative-path</key>
-						<string>DonateMate/Pickup.swift</string>
+						<string>DonateMate/DonorStarView.swift</string>
 					</dict>
 				</dict>
 				<key>type</key>

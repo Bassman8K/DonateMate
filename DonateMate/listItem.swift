@@ -104,4 +104,8 @@ struct ListItem: View {
 #Preview {
     ListItem()
         .environmentObject(NewDonation())
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
+
 }

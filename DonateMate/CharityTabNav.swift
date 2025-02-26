@@ -70,6 +70,6 @@ struct CharityTabNav: View {
     CharityTabNav()
         .environmentObject(NewDonation())
         .environmentObject(NewPickup())
-
+        .environmentObject(NewThank())
 
 }

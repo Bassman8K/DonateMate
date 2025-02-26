@@ -11,8 +11,12 @@ struct ThankYouView: View {
    
     @State private var messageText: String = "Thank you for your donation!"
     @State private var selectedItem: PhotosPickerItem? = nil
-    @State private var selectedImageData: Data? = nil
+   // @State private var selectedImageData: Data? = nil
     @Binding var showThankYou : Bool
+    @State private var donationItem: PhotosPickerItem?
+    @State private var itemImage: Image?
+    @EnvironmentObject var newThanks: NewThank
+
     
     var body: some View {
         ZStack {
@@ -20,6 +24,13 @@ struct ThankYouView: View {
         
             Color("lightPurple")
                 .ignoresSafeArea()
+            Text("Thank you Donor")
+                .fontWeight(.bold)
+                .font(.largeTitle)
+                .foregroundStyle(.green)
+                .padding()
+                .frame(width: 300, height: 100)
+                .position(x: 200, y: 90)
             VStack {
                 // Logo (Top Right)
                 HStack {
@@ -27,7 +38,7 @@ struct ThankYouView: View {
                     Image("cornerlogo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 80, height: 60)
                         .padding(.trailing)
                 }
                 .padding(.top, 10)
@@ -41,16 +52,22 @@ struct ThankYouView: View {
                 Form {
                     // Section for Image Picker
                     Section(header: Text("Select an Image").font(.headline)) {
-                        PhotosPicker(selection: $selectedItem, matching: .images) {
-                            Image(uiImage: selectedImageData.flatMap { UIImage(data: $0) } ?? UIImage(named: "Insert-Image")!)
+                        VStack {
+                            PhotosPicker("Select image", selection: $donationItem, matching: .images)
+                            
+                            itemImage?
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 280, height: 190)
-                                .cornerRadius(20)
-                                .padding()
+                                //.frame(width: 300, height: 300)
                         }
-                        .onChange(of: selectedItem) { oldItem, newItem in
-                            Task { selectedImageData = try? await newItem?.loadTransferable(type: Data.self) }
+                        .onChange(of: donationItem) {
+                            Task {
+                                if let loaded = try? await donationItem?.loadTransferable(type: Image.self) {
+                                    itemImage = loaded
+                                } else {
+                                    print("Failed")
+                                }
+                            }
                         }
                     }
                     
@@ -71,10 +88,15 @@ struct ThankYouView: View {
                        
 //                }
                 
-                Button("Send", action: {
+                Button("Send") {
                     showThankYou = false
+                    
+                    let newThank = ThankYou(uuid: UUID().uuidString, imagePerson: itemImage ?? Image("couch"), message: messageText)
+                    
+                    newThanks.thankArray.append(newThank)
+                    
                 
-                })
+                }
                 .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -104,4 +126,8 @@ struct ThankYouView: View {
 
 #Preview {
     ThankYouView(showThankYou: .constant(false))
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
+
 }
