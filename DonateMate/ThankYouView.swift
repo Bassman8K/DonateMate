@@ -68,23 +68,25 @@ struct ThankYouView: View {
                 // Section for Send Button
 //                Button(action: showThankYou = false) {
 //                    Text("Send")
-//                        .font(.headline)
-//                        .foregroundColor(.white)
-//                        .frame(maxWidth: .infinity)
-//                        .padding()
-//                        .background(Color("darkPurple"))
-//                        .cornerRadius(10)
+                       
 //                }
                 
                 Button("Send", action: {
                     showThankYou = false
-                    
-                })
                 
-                .buttonStyle(.borderedProminent)
+                })
+                .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color("darkPurple"))
+                    .cornerRadius(10)
+                
+                    .buttonStyle(.borderless)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal)
                 .padding(.top, -100)
+                
                 
                 
                 
