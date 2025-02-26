@@ -4,33 +4,43 @@
 //
 //  Created by Patrick Ly on 23/2/2025.
 //
-
 import SwiftUI
 
 struct recipientDetail: View {
     let recipient: Recipient
+    
     var body: some View {
         ZStack {
-          
+            Color("lightPurple")
+                .ignoresSafeArea()
+            
             VStack {
                 Form {
                     Section {
                         Text(recipient.name)
                             .font(.title)
+                            .bold()
+                            .foregroundStyle(.darkPurple)
                     }
                     Text("Needs")
-                    Section{
-                        Text(recipient.needs)
-                    }
-                    Text(recipient.address)
+                        .font(.headline)
+                        .foregroundStyle(.darkPurple)
                     
+                    Section {
+                        Text(recipient.needs)
+                            .font(.title)
+                            .foregroundStyle(.darkPurple)
+                            .bold()
+                            .italic()
+                    }
+                    
+                    Text(recipient.address)
+                        .font(.subheadline)
+                        .foregroundStyle(.darkPurple)
                 }
-               
-
-
+                .scrollContentBackground(.hidden)
+                .background(Color("lightPurple"))
             }
-            
-
         }
        
 
