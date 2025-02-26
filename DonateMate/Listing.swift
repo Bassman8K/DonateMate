@@ -10,6 +10,6 @@ import Foundation
 struct Listing {
     var id: UUID = UUID()
     var name: String
-    var date: Date
+    var date: DateComponents
     var imageName: String
 }

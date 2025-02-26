@@ -13,37 +13,16 @@ struct DonorHomeView: View {
         ZStack() {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
-                HStack(alignment: .center, spacing: 0) {
-                    Image("Vector 9")
-                        .background(Color.lightPurple)
-                        .foregroundStyle(.lightPurple)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Text("onate")
-                        .font(
-                            Font.custom("Feather", size: 37.55211)
-                                .weight(.bold)
-                        )
-                        .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
-                    
-                    Image("Vector 8")
-                    
-                        .rotationEffect(Angle(degrees: 6.25))
-                    Text("ate")
-                        .font(
-                            Font.custom("Feather", size: 37.55211)
-                                .weight(.bold)
-                        )
-                        .foregroundColor(Color(red: 0.2, green: 0.78, blue: 0.35))
-                }
+                Image("horizontallogo")
+                    .resizable()
+                    .scaledToFit()
                 
                 
                 HStack {
-                    Text("Hi \(user)")
-                        .font(Font.custom("SF Pro Display", size: 33.09196))
-                        .kerning(0.66184)
-                        .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))
-                        .frame(width: 133.94118, alignment: .topLeading)
+                    Text("Hi \(user),")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.darkPurple)
                     ZStack {
                         Text("Let's support the vulnerable\nAustralian communities!")
                             .font(Font.custom("SF Pro Display", size: 14.28146))
@@ -59,13 +38,10 @@ struct DonorHomeView: View {
                     .cornerRadius(15.12154)
                     .shadow(color: Color(red: 0.3, green: 0.13, blue: 0.7).opacity(0.3), radius: 1.68017, x: 0, y: 3.36034)
                 }
-                
-                
-                
-                
-                
-                
+                Spacer()
+
             }
+            
         }
     }
 }

@@ -13,7 +13,11 @@ struct CommunityView: View {
             Color.lightPurple.edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    
+                    Text("Community")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .scaledToFit()
+                        .foregroundStyle(.darkPurple)
                     Spacer()
                     Image("cornerlogo")
                         .resizable()
