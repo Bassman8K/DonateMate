@@ -62,6 +62,11 @@ struct DonorStarView: View {
                     .scrollContentBackground(.hidden)
                     
                 }
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                
             }
             .navigationTitle("Thanks")
 

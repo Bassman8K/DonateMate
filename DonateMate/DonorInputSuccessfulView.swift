@@ -42,7 +42,7 @@ struct DonorInputSuccessfulView: View {
             
             Spacer()
             
-            NavigationLink(destination: DonorHomeView()) {
+            NavigationLink(destination: DonorTabView()) {
                 Text("Go back to home")
                     .font(.title2)
                     .fontWeight(.semibold)
