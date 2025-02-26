@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct ThankYou {
+    let uuid: String
+
+    var name: String
+    var imagePerson: Image
+    var message: String
+    var recipientName: String
+    
+    
+}

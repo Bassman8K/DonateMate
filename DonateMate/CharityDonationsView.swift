@@ -132,5 +132,7 @@ struct CharityDonationsView: View {
 #Preview {
     CharityDonationsView()
         .environmentObject(NewDonation())
+        .environmentObject(NewPickup())
+
 
 }

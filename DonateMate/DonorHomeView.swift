@@ -24,7 +24,7 @@ struct DonorHomeView: View {
                         .fontWeight(.bold)
                         .foregroundStyle(.darkPurple)
                     ZStack {
-                        Text("Let's support the vulnerable\nAustralian communities!")
+                        Text("Let's support vulnerable\nAustralian communities!")
                             .font(Font.custom("SF Pro Display", size: 14.28146))
                             .kerning(0.28563)
                             .foregroundColor(Color(red: 0.3, green: 0.13, blue: 0.7))

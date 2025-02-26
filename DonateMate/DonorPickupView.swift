@@ -8,27 +8,85 @@
 import SwiftUI
 
 struct DonorPickupView: View {
+    @EnvironmentObject var newPickups: NewPickup
+
     var body: some View {
-        ZStack {
-            VStack {
-                HStack {
-                    Text("Pickups")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Spacer()
-                    List {
-                    }
+        Text("Scheduled Pickups")
+             NavigationStack {
+                 ZStack {
+                     Color("lightPurple")
+                         .ignoresSafeArea()
                     
-                }
+                     VStack {
+                         List {
+                             
+                             ForEach(newPickups.pickupArray, id: \.uuid) { pickup in
+
+                                 
+                                 
+                                 HStack {
+                                     // Image Placeholder
+                                         pickup.image
+                                         .resizable()
+                                         .scaledToFit()
+                                         .frame(width: 50, height: 50)
+                                         .padding(.trailing, 8)
+                                     
+                                     VStack(alignment: .leading, spacing: 4) {
+                                         Text(pickup.name)
+                                             .font(.title)
+                                             .bold()
+                                             .underline()
+                                         
+                                         HStack {
+//                                             VStack(alignment: .leading) {
+//                                                 Text("Pick up Location")
+//                                                     .font(.body)
+//                                                     .bold()
+//                                                 
+//                                                 Text(pickup.address)
+//                                                     .font(.caption)
+//                                                     .foregroundColor(.green)
+//                                                 
+//                                             }
+                                             Spacer()
+                                             VStack(alignment: .trailing) {
+                                                 
+                                                 
+                                                 Text("Charity")
+                                                     .font(.body)
+                                                     .bold()
+                                                 
+                                                 Text("Salvation Army")
+                                                     .font(.caption)
+                                                     .foregroundColor(.green)
+                                                 
+                                             }
+                                         }
+                                     }
+                                 }
+     
+                             }
+                             .padding(.vertical, 8)
+                                     
+                                 
+                             }
+                         }
+                         .scrollContentBackground(.hidden)
+                         
+                     }
+                 }
+                 .navigationTitle("Pickups")
+   
+                 
                 
-            }
-        }
-        .frame(width: 800, height: 1221)
-        .background(Color(red: 0.87, green: 0.87, blue: 1))
-    }
+             }
+         }
     
-}
+
 
 #Preview {
     DonorPickupView()
+        .environmentObject(NewPickup())
+
 }
