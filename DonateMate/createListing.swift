@@ -66,7 +66,7 @@ struct createListing: View {
                 Section(header: Text("Pickup Instructions (optional)")){
                     TextField("By the mailbox", text: $instructions)
                 }
-                Section(header: Text("Schedule Pickup")){
+                Section(header: Text("Select Available Dates for Pickup")){
                     MultiDatePicker("Select Dates", selection: $selectedDates)
                     
                 }
@@ -87,6 +87,8 @@ struct createListing: View {
                 //            print(numItems)
                 //            print("hi")
                 let newDonation = Donation(uuid: UUID().uuidString, name: itemName, image: itemImage!, distance: "3km", description: descriptionInput, address: address, instructions: instructions, selectedDates: selectedDates, fromTime: fromTime, toTime: toTime)
+                
+                
                 newDonations.donationArray.append(newDonation)
                 
             }

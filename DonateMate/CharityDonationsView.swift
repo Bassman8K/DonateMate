@@ -70,17 +70,18 @@ struct CharityDonationsView: View {
                                         donation.image
                                         .resizable()
                                     //make navigation link that leads to itemDetails page
-                                    Text(donation.name)
+                                  //  Text(donation.name)
 
                                     NavigationLink(destination: ItemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance, description: donation.description, address: donation.address, instructions: donation.instructions, selectedDates: donation.selectedDates, fromTime: donation.fromTime, toTime: donation.toTime)) {
-                                        Text("go")
+                                        Text(donation.name)
+                                        
                                     }
                                     
                                     Text(donation.distance)
                                 }
                                 .frame(width: 100.60858, height: 133.57477, alignment: .center)
                                 .padding(0)
-                                .background(.white)
+                                //.background(.white)
                                 .border(Color.gray)
 
                             }
@@ -92,9 +93,8 @@ struct CharityDonationsView: View {
                                 VStack(alignment: .center, spacing: 0) {
                                         donation.image
                                         .resizable()
-                                    Text(donation.name) 
                                         NavigationLink(destination: ItemDetails(itemName: donation.name, itemImage: donation.image, itemDistance: donation.distance, description: donation.description, address: donation.address, instructions: donation.instructions, selectedDates: donation.selectedDates, fromTime: donation.fromTime, toTime: donation.toTime)) {
-                                            Text("go")
+                                            Text(donation.name)
                                         }
                                     
                                     Text(donation.distance)

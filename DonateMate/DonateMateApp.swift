@@ -15,7 +15,7 @@ struct DonateMateApp: App {
         WindowGroup {
             OnboardView()
                 .environmentObject(NewDonation())
-
+                .environmentObject(NewPickup())
 //                .environmentObject(NewDonation())
 
 //            CharityDonationsView()
