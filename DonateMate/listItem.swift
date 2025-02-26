@@ -30,7 +30,10 @@ struct ListItem: View {
            // ScrollView {
             
             Text("List Item")
-                .font(.title)
+                .font(.system(size: 30, weight: .heavy))
+                .foregroundColor(Color.darkPurple)
+                .frame(width: 350, height: 40, alignment: .top)
+            
                 VStack (alignment: .center){
                    
                     NavigationLink(destination: createListing()) {
@@ -46,6 +49,8 @@ struct ListItem: View {
                     
                     Text("Your Listings")
                         .font(.title2)
+                        .foregroundColor(Color.darkPurple)
+                        .frame(width: 350, height: 40, alignment: .top)
                     VStack {
                         List {
 

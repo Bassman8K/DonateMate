@@ -9,9 +9,10 @@ import SwiftUI
 
 struct JobsView: View {
     @State private var showThankYou = false // Controls the Thank You screen
-    
+    @EnvironmentObject var newPickups: NewPickup
+
     var body: some View {
-   
+   Text("Jobs")
         NavigationStack {
             ZStack {
                 Color("lightPurple")
@@ -20,22 +21,20 @@ struct JobsView: View {
                 VStack {
                     List {
                         
-                        ForEach([
-                            ("couch", "Couch", "Building 10", "Building 12"),
-                            
-                        ], id: \.1) { image, name, pickup, dropoff in
+                        ForEach(newPickups.pickupArray, id: \.uuid) { pickup in
+
                             
                             
                             HStack {
                                 // Image Placeholder
-                                Image(image)
+                                    pickup.image
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 50, height: 50)
                                     .padding(.trailing, 8)
                                 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(name)
+                                    Text(pickup.name)
                                         .font(.title)
                                         .bold()
                                         .underline()
@@ -46,7 +45,7 @@ struct JobsView: View {
                                                 .font(.body)
                                                 .bold()
                                             
-                                            Text(pickup)
+                                            Text(pickup.address)
                                                 .font(.caption)
                                                 .foregroundColor(.green)
                                             
@@ -55,11 +54,11 @@ struct JobsView: View {
                                         VStack(alignment: .trailing) {
                                             
                                             
-                                            Text("Drop off Location")
+                                            Text("Recipient")
                                                 .font(.body)
                                                 .bold()
                                             
-                                            Text(dropoff)
+                                            Text(pickup.recipientName)
                                                 .font(.caption)
                                                 .foregroundColor(.green)
                                             
@@ -106,5 +105,11 @@ struct JobsView: View {
 
 
 #Preview {
-    JobsView()
+    let exampleTime = Calendar.current.date(from: DateComponents(hour: 9, minute: 0))!
+
+    JobsView( )
+        .environmentObject(NewPickup())
+    
+//    uuid: UUID().uuidString, name: "Couch", image: "couch", distance: "3km", description: "many many stains", address: "7 couchland", instructions: "instructions", selectedDate: "1 Jun 2025", time: exampleTime , recipientName: "Margaret Locke"
+
 }
