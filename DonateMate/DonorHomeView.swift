@@ -16,7 +16,7 @@ struct DonorHomeView: View {
                 Image("horizontallogo")
                     .resizable()
                     .scaledToFit()
-                
+                    .padding(.horizontal, 50)
                 
                 HStack {
                     Text("Hi \(user),")
