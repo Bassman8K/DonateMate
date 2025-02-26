@@ -29,9 +29,42 @@ struct DonorProfileView: View {
                 }
                 .padding(.top, 10)
                 Spacer()
-                
+                Form {
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 42.02667, height: 42.02667)
+                        Text("My profile")
+                    }
+                    .padding(.top, 10)
+                    
+                    HStack {
+                        Image(systemName: "gearshape.fill")
+                            .frame(width: 42.02667, height: 42.02667)
+                        Text("Settings")
+                    }
+                    
+                    HStack {
+                        Image(systemName: "ellipsis.message.fill")
+                            .frame(width: 42.02667, height: 42.02667)
+                        Text("Help")
+                    }
+                    HStack {
+                        Image(systemName: "text.page.fill")
+                            .frame(width: 42.02667, height: 42.02667)
+                        Text("Privacy Policy")
+                    }
+                    HStack {
+                        Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+                            .frame(width: 42.02667, height: 42.02667)
+                        Text("Log out")
+                    }
+                    Spacer()
+                    Spacer()
+                }
+                .foregroundStyle(.darkPurple)
                 
             }
+            .frame(alignment: .topLeading)
         }
     }
 }

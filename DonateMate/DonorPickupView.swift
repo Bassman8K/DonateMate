@@ -16,6 +16,8 @@ struct DonorPickupView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     Spacer()
+                    List {
+                    }
                     
                 }
                 
