@@ -109,4 +109,8 @@ struct createListing: View {
     
     createListing()
         .environmentObject(NewDonation())
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
+
 }

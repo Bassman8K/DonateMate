@@ -17,7 +17,7 @@ struct JobsView: View {
             ZStack {
                 Color("lightPurple")
                     .ignoresSafeArea()
-               
+                
                 VStack {
                     List {
                         
@@ -79,26 +79,26 @@ struct JobsView: View {
                                     .cornerRadius(12)
                             }
                             .padding(.top,8)
-                           
-                        }
-                        .padding(.vertical, 8)
-                                
                             
                         }
+                        .padding(.vertical, 8)
+                        
+                        
                     }
-                    .scrollContentBackground(.hidden)
-                    
                 }
-            }
-            .navigationTitle("Jobs")
-            .onAppear {
-                showThankYou = false
-            }
-            .fullScreenCover(isPresented: $showThankYou) {
-                ThankYouView()
+                .scrollContentBackground(.hidden)
                 
+            }
+        }
+        .navigationTitle("Jobs")
+        .onAppear {
+            showThankYou = false
+        }
+        .fullScreenCover(isPresented: $showThankYou) {
+            ThankYouView(showThankYou: $showThankYou)
             
-           
+            
+            
         }
     }
 }
@@ -109,6 +109,8 @@ struct JobsView: View {
 
     JobsView( )
         .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
     
 //    uuid: UUID().uuidString, name: "Couch", image: "couch", distance: "3km", description: "many many stains", address: "7 couchland", instructions: "instructions", selectedDate: "1 Jun 2025", time: exampleTime , recipientName: "Margaret Locke"
 

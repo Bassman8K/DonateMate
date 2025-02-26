@@ -79,6 +79,8 @@ func setTabBarColor() {
     DonorTabView()
         .environmentObject(NewDonation())
         .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
 
 
 }

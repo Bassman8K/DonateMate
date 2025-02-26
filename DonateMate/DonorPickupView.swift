@@ -11,7 +11,6 @@ struct DonorPickupView: View {
     @EnvironmentObject var newPickups: NewPickup
 
     var body: some View {
-        Text("Scheduled Pickups")
              NavigationStack {
                  ZStack {
                      Color("lightPurple")
@@ -39,16 +38,7 @@ struct DonorPickupView: View {
                                              .underline()
                                          
                                          HStack {
-//                                             VStack(alignment: .leading) {
-//                                                 Text("Pick up Location")
-//                                                     .font(.body)
-//                                                     .bold()
-//                                                 
-//                                                 Text(pickup.address)
-//                                                     .font(.caption)
-//                                                     .foregroundColor(.green)
-//                                                 
-//                                             }
+
                                              Spacer()
                                              VStack(alignment: .trailing) {
                                                  
@@ -88,5 +78,7 @@ struct DonorPickupView: View {
 #Preview {
     DonorPickupView()
         .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
 
 }
