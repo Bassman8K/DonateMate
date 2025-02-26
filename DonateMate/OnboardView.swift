@@ -12,6 +12,11 @@ class NewDonation : ObservableObject {
     @Published var donationArray: [Donation] = []
 }
 
+class NewPickup : ObservableObject {
+    
+    @Published var pickupArray: [Pickup] = []
+}
+
 struct OnboardView: View {
     @State var isActive : Bool = false
     @StateObject var newDonations  = NewDonation()
@@ -34,7 +39,7 @@ struct OnboardView: View {
                 //Loading Indicator
                 VStack {
                     ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        //.progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .scaleEffect(1.5)
                     
                     Text("Loading...")
@@ -67,5 +72,6 @@ struct OnboardView: View {
 }
 #Preview {
     OnboardView()
+    
 }
 
