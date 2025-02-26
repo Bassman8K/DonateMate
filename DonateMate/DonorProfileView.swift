@@ -30,7 +30,7 @@ struct DonorProfileView: View {
                     
                     Form {
                         VStack {
-                            Image("sallyprofile")
+                            Image("profileImage")
                                 .resizable()
                                 .frame(width: 160, height: 160)
                         }
