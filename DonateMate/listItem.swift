@@ -34,7 +34,7 @@ struct ListItem: View {
                 VStack (alignment: .center){
                    
                     NavigationLink(destination: createListing()) {
-                        Image("plus")
+                        Image("Add Button")
                         
                             .resizable()
                             .scaledToFit()
