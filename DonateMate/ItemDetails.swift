@@ -69,6 +69,8 @@ struct ItemDetails: View {
                 .scaledToFit()
                 .frame(height: 249.19385)
                 .cornerRadius(5)
+                .shadow(radius: 10)
+            
             VStack (alignment: .leading, spacing: 10){
                 Color("lightPurple")
                     .ignoresSafeArea()
@@ -133,6 +135,8 @@ struct ItemDetails: View {
                             
                         }
                         Text("Chosen Date: \(chosenDate)")
+                        .opacity(0.5)
+
 
                     HStack {
                         VStack{
@@ -170,6 +174,8 @@ struct ItemDetails: View {
                              in: dateRange,
                              displayedComponents: [.hourAndMinute]
                         )
+                    .opacity(0.5)
+
                 }
                 .padding()
                 
