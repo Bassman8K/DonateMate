@@ -17,8 +17,18 @@ struct DonorStarView: View {
                     .scaledToFit()
                 Spacer()
                 ZStack {
-                   Image("")
+                   Image("checksymbol")
+                        .resizable()
+                        .scaledToFit()
+                    Image("profileimage")
+                        .resizable()
+                        .scaledToFit()
                 }
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                
             }
         }
     }
