@@ -69,5 +69,8 @@ struct CharityTabNav: View {
 #Preview {
     CharityTabNav()
         .environmentObject(NewDonation())
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
 
 }

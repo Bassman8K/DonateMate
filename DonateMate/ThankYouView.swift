@@ -4,13 +4,25 @@
 //
 //  Created by Sara Al Fahdawi on 24/2/2025.
 //
-
+import PhotosUI
 import SwiftUI
 
 struct ThankYouView: View {
+   
+    @State private var messageText: String = "Thank you for your donation!"
+    @State private var selectedItem: PhotosPickerItem? = nil
+   // @State private var selectedImageData: Data? = nil
+    @Binding var showThankYou : Bool
+    @State private var donationItem: PhotosPickerItem?
+    @State private var itemImage: Image?
+    @EnvironmentObject var newThanks: NewThank
+
+    
     var body: some View {
         ZStack {
-            Color("darkPurple")
+            
+        
+            Color("lightPurple")
                 .ignoresSafeArea()
             Text("Thank you Donor")
                 .fontWeight(.bold)
@@ -20,30 +32,102 @@ struct ThankYouView: View {
                 .frame(width: 300, height: 100)
                 .position(x: 200, y: 90)
             VStack {
+                // Logo (Top Right)
+                HStack {
+                    Spacer()
+                    Image("cornerlogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80, height: 60)
+                        .padding(.trailing)
+                }
+                .padding(.top, 10)
                 
+                // Title
+                Text("Thank You Message")
+                    .font(.largeTitle).bold()
+                    .foregroundColor(Color("darkPurple"))
+                    .padding(.top, 10)
+                //  Added Form to organize sections
+                Form {
+                    // Section for Image Picker
+                    Section(header: Text("Select an Image").font(.headline)) {
+                        VStack {
+                            PhotosPicker("Select image", selection: $donationItem, matching: .images)
+                            
+                            itemImage?
+                                .resizable()
+                                .scaledToFit()
+                                //.frame(width: 300, height: 300)
+                        }
+                        .onChange(of: donationItem) {
+                            Task {
+                                if let loaded = try? await donationItem?.loadTransferable(type: Image.self) {
+                                    itemImage = loaded
+                                } else {
+                                    print("Failed")
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Section for Message Input
+                    Section(header: Text("Your Message").font(.headline)) {
+                        TextEditor(text: $messageText)
+                            .frame(height: 40)
+                            .foregroundStyle(.secondary)
+                            .italic()
+                            .padding()
+                            .background(Color("secondaryPurple"))
+                            .cornerRadius(10)
+                    }
+                } .scrollContentBackground(.hidden) //  Keeps the background styling clean
+                // Section for Send Button
+//                Button(action: showThankYou = false) {
+//                    Text("Send")
+                       
+//                }
                 
-                Image(systemName: "photo.badge.plus.fill")
-                    .font(.system(size: 100))
-                    .foregroundStyle(.white)
-                    .padding()
-                Text(
-                    "Add up to two photos"
-                ).font(.caption)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .fontWeight(.bold)
-                    .italic()
+                Button("Send") {
+                    showThankYou = false
+                    
+                    let newThank = ThankYou(uuid: UUID().uuidString, imagePerson: itemImage ?? Image("couch"), message: messageText)
+                    
+                    newThanks.thankArray.append(newThank)
                     
                 
+                }
+                .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color("darkPurple"))
+                    .cornerRadius(10)
+                
+                    .buttonStyle(.borderless)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal)
+                .padding(.top, -100)
                 
                 
-            } .padding()
                 
-            
+                
+            }
+            .padding()
         }
+    }
+    
+    func sendMessage() {
+        //  Haptic Feedback when sending
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
 
 #Preview {
-    ThankYouView()
+    ThankYouView(showThankYou: .constant(false))
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
+
 }

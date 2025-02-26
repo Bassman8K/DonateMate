@@ -232,5 +232,7 @@ struct ItemDetails: View {
     let exampleToTime = Calendar.current.date(from: DateComponents(hour: 17, minute: 0))!
     ItemDetails(itemName: "Couch", itemImage: Image("couch"), itemDistance: "3km",description: "It has 50 stains", address: "123 Hello Town", instructions: "It will be on the porch", selectedDates: exampleDateComponents, fromTime: exampleFromTime, toTime: exampleToTime )
         .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
 
 }

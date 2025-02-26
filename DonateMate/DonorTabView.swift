@@ -42,28 +42,22 @@ struct DonorTabView: View {
             }
             .tabItem {
                 Image(systemName: "paperplane.fill")
-                Text("PickMe")
+                Text("Pickups")
             }
             
-            NavigationStack {
-                CommunityView() // Community View
-            }
-            .tabItem {
-                Image(systemName: "globe.americas.fill")
-                Text("Connect")
-            }
+            
             NavigationStack {
                 DonorStarView()
             }
             .tabItem {
                 Image(systemName: "star.fill")
-                Text("Stars")
+                Text("Thank Yous")
             }
             NavigationStack {
                 DonorProfileView()
             }
             .tabItem {
-                Image(systemName: "person.3.fill")
+                Image(systemName: "person.fill")
                 Text("Profile")
             }
         }
@@ -83,4 +77,10 @@ func setTabBarColor() {
 
 #Preview {
     DonorTabView()
+        .environmentObject(NewDonation())
+        .environmentObject(NewPickup())
+        .environmentObject(NewThank())
+
+
+
 }
