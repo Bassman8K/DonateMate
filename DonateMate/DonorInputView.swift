@@ -9,18 +9,17 @@ import SwiftUI
 
 struct DonorInputView: View {
     
-    @State private var imageItem: PhotosPickerItem?
     var body: some View {
         VStack {
-            PhotosPicker(selection: $imageItem) {
-                Text("Pick an Image")
+            Text("Go back")
+                .navigationTitle(Text("Donor Input"))
+                .navigationBarBackButtonHidden(false)
+            HStack {
+                NavigationStack {
+                }
             }
-            NavigationStack {
-                Image("Add Button")
-                    
-            }
-            
         }
+        
     }
 }
 
