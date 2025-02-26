@@ -25,80 +25,65 @@ struct ListItem: View {
     @EnvironmentObject var newDonations: NewDonation
     
     var body: some View {
-        
         NavigationStack {
-           // ScrollView {
-            
-            Text("List Item")
-                .font(.system(size: 30, weight: .heavy))
-                .foregroundColor(Color.darkPurple)
-                .frame(width: 350, height: 40, alignment: .top)
-            
-                VStack (alignment: .center){
-                   
+            ZStack {
+                Color("lightPurple") // Set background color
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Image("horizontallogo")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 40)
+                        .padding(.bottom, 80) // Reduce spacing
+                    
                     NavigationLink(destination: createListing()) {
                         Image("Add Button")
-                        
                             .resizable()
                             .scaledToFit()
-                            .padding(70)
-                        
-                        
+                            .frame(width: 180, height: 180) // Adjust size
                     }
                     
-                    
                     Text("Your Listings")
-                        .font(.title2)
-                        .foregroundColor(Color.darkPurple)
-                        .frame(width: 350, height: 40, alignment: .top)
-                    VStack {
-                        List {
-
-                        ForEach(newDonations.donationArray, id: \.uuid) { donation in
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("darkPurple"))
+                        .padding(.top, 5) // Reduce gap
+                        .padding(.bottom, 10) // Reduce gap
+                    
+                    // List of items with light purple background
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            ForEach(newDonations.donationArray, id: \.uuid) { donation in
                                 HStack {
                                     donation.image
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 50, height: 50)
+                                    
                                     Text(donation.name)
+                                        .font(.body)
+                                        .foregroundColor(.black)
+                                        .padding(.leading, 8)
+                                    
+                                    Spacer()
                                 }
-                                
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.white.opacity(0.5)) // Light purple with white opacity
+                                .cornerRadius(12)
+                                .padding(.horizontal)
                             }
                         }
                     }
-                        
-//                        VStack {
-//                            
-//                            List {
-//                                HStack {
-//                                    Image("couch")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 50, height: 50)
-//                                    Text("Couch")
-//                                    
-//                                }
-//                                
-//                                
-//                                
-//                            }
-//                            
-//                        }
-                    
+                    .padding(.top, 10) // Add small spacing
                     
                     Spacer()
                 }
-                
                 .padding()
-                .background(Color.lightPurple)
-
             }
-
         }
-            
-            
-        //}
-    
+    }
 }
 
 #Preview {
@@ -106,6 +91,4 @@ struct ListItem: View {
         .environmentObject(NewDonation())
         .environmentObject(NewPickup())
         .environmentObject(NewThank())
-
-
 }

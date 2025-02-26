@@ -10,108 +10,107 @@ import SwiftUI
 struct JobsView: View {
     @State private var showThankYou = false // Controls the Thank You screen
     @EnvironmentObject var newPickups: NewPickup
-
+    
     var body: some View {
-   Text("Jobs")
         NavigationStack {
             ZStack {
-                Color("lightPurple")
-                    .ignoresSafeArea()
+                Color("lightPurple").ignoresSafeArea() // Ensures full background coverage
                 
-                VStack {
-                    List {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        // Header with title and logo
+                        HStack {
+                            Text("Jobs")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("darkPurple"))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            Image("cornerlogo")
+                                .resizable()
+                                .frame(width: 110, height: 60)
+                        }
+                        .padding(.horizontal)
                         
+                        // List of jobs (Replacing `List` with `ForEach`)
                         ForEach(newPickups.pickupArray, id: \.uuid) { pickup in
-
-                            
-                            
-                            HStack {
-                                // Image Placeholder
+                            VStack(alignment: .leading, spacing: 8) {
+                                HStack {
                                     pickup.image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
-                                    .padding(.trailing, 8)
-                                
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(pickup.name)
-                                        .font(.title)
-                                        .bold()
-                                        .underline()
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .padding(.trailing, 8)
                                     
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            Text("Pick up Location")
-                                                .font(.body)
-                                                .bold()
-                                            
-                                            Text(pickup.address)
-                                                .font(.caption)
-                                                .foregroundColor(.green)
-                                            
-                                        }
-                                        Spacer()
-                                        VStack(alignment: .trailing) {
-                                            
-                                            
-                                            Text("Recipient")
-                                                .font(.body)
-                                                .bold()
-                                            
-                                            Text(pickup.recipientName)
-                                                .font(.caption)
-                                                .foregroundColor(.green)
-                                            
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(pickup.name)
+                                            .font(.title)
+                                            .bold()
+                                            .shadow(radius: 1)
+                                        
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text("Pick up Location")
+                                                    .font(.body)
+                                                    .foregroundColor(Color("darkPurple"))
+                                                    .bold()
+                                                
+                                                Text(pickup.address)
+                                                    .font(.caption)
+                                                    .foregroundColor(Color("darkPurple"))
+                                                    .foregroundColor(.green)
+                                            }
+                                            Spacer()
+                                            VStack(alignment: .trailing) {
+                                                Text("Recipient")
+                                                    .font(.body)
+                                                    .foregroundColor(Color("darkPurple"))
+                                                    .bold()
+                                                
+                                                Text(pickup.recipientName)
+                                                    .font(.caption)
+                                                    .foregroundColor(Color("darkPurple"))
+                                                    .foregroundColor(.green)
+                                            }
                                         }
                                     }
                                 }
+                                
+                                Button(action: {
+                                    showThankYou = true
+                                }) {
+                                    Text("Send Thank You")
+                                        .font(.headline)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(width: 250, height: 50)
+                                        .background(Color("darkPurple"))
+                                        .cornerRadius(20)
+                                        .shadow(radius: 3)
+                                }
+                                .padding(.top, 8)
                             }
-                            // 🔹 "Send Thank You" Button Below the Job
-                            Button(action: {
-                                showThankYou = true
-                            }) {
-                                Text("Send Thank You")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color("darkPurple")) // Use primary app color
-                                    .cornerRadius(12)
-                            }
-                            .padding(.top,8)
-                            
+                            .padding()
+                            .background(Color.white.opacity(0.5)) // Slight card effect
+                            .cornerRadius(12)
+                            .padding(.horizontal)
                         }
-                        .padding(.vertical, 8)
-                        
-                        
                     }
+                    .padding(.top, 16)
                 }
-                .scrollContentBackground(.hidden)
-                
             }
         }
-        .navigationTitle("Jobs")
         .onAppear {
             showThankYou = false
         }
         .fullScreenCover(isPresented: $showThankYou) {
             ThankYouView(showThankYou: $showThankYou)
-            
-            
-            
         }
     }
 }
-
-
 #Preview {
-    let exampleTime = Calendar.current.date(from: DateComponents(hour: 9, minute: 0))!
-
-    JobsView( )
+    JobsView()
         .environmentObject(NewPickup())
         .environmentObject(NewThank())
-
-    
-//    uuid: UUID().uuidString, name: "Couch", image: "couch", distance: "3km", description: "many many stains", address: "7 couchland", instructions: "instructions", selectedDate: "1 Jun 2025", time: exampleTime , recipientName: "Margaret Locke"
-
 }

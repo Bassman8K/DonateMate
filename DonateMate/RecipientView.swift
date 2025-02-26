@@ -20,28 +20,47 @@ struct RecipientView: View {
         Recipient(name: "Isabella Turner", needs: "Iron", address: "10 Glenferrie Road, Malvern, VIC 3144"),
         Recipient(name: "Benjamin Gray", needs: "Fridge", address: "121 Queen Street, Fitzroy, VIC 3065")
     ]
+    
     var body: some View {
         NavigationStack {
-            List {
-                ForEach (recipients, id: \.name) { recipient in
+            ZStack {
+                Color("lightPurple") // Ensure background covers the whole screen
+                    .ignoresSafeArea()
+                
+                VStack {
                     HStack {
-                        NavigationLink(recipient.name){
-                            recipientDetail(recipient: recipient)
-                        }
-                        .font(.title)
+                        Text("Recipients")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.darkPurple)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Image("cornerlogo")
+                            .resizable()
+                            .frame(width: 110, height: 60)
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 16) // Adjust spacing from top
                     
+                    Spacer(minLength: 4) // Adds a small gap before the list
+                    
+                    List {
+                        ForEach(recipients, id: \.name) { recipient in
+                            NavigationLink(destination: recipientDetail(recipient: recipient)) {
+                                Text(recipient.name)
+                                    .font(.title2)
+                                    .foregroundColor(.darkPurple)
+                            }
+                            .listRowBackground(Color("lightPurple")) // Ensures each row matches the background
+                        }
+                    }
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden) // Hides default white background of List
                     
                 }
+                .padding(.bottom, 10) // Adjust bottom spacing if needed
             }
-            .background(.lightPurple)
-
-            .listStyle(.plain)
-            .navigationTitle("Recipients")
-            
         }
-        .background(.lightPurple)
-
     }
 }
 

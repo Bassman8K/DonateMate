@@ -43,7 +43,7 @@ struct OnboardView: View {
                 //Loading Indicator
                 VStack {
                     ProgressView()
-                        //.progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .scaleEffect(1.5)
                     
                     Text("Loading...")
@@ -55,7 +55,7 @@ struct OnboardView: View {
                 .padding(.top , 500)
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isActive = true
                 }
             }
