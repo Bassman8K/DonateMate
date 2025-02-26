@@ -11,6 +11,7 @@ struct JobsView: View {
     @State private var showThankYou = false // Controls the Thank You screen
     
     var body: some View {
+   
         NavigationStack {
             ZStack {
                 Color("lightPurple")

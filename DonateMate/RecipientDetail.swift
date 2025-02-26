@@ -7,23 +7,24 @@
 
 import SwiftUI
 
-struct RecipientDetail: View {
-    let recipient :String
+struct recipientDetail: View {
+    let recipient: Recipient
     var body: some View {
         Form {
             Section {
-                Text(recipient)
+                Text(recipient.name)
                     .font(.title)
             }
             Text("Needs")
             Section{
-                Text("Couch")
+                Text(recipient.needs)
             }
+            Text(recipient.address)
             
         }
     }
 }
 
 #Preview {
-    RecipientDetail(recipient: "Margaret")
+    recipientDetail(recipient: Recipient(name: "Margaret", needs: "Couch", address: "230 High Street, Prahran, VIC 3181"))
 }

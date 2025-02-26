@@ -22,12 +22,81 @@
 import SwiftUI
 
 struct ListItem: View {
+    @EnvironmentObject var newDonations: NewDonation
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        
+        NavigationStack {
+           // ScrollView {
+            
+            Text("List Item")
+                .font(.title)
+                VStack (alignment: .center){
+                   
+                    NavigationLink(destination: createListing()) {
+                        Image("Add Button")
+                        
+                            .resizable()
+                            .scaledToFit()
+                            .padding(70)
+                        
+                        
+                    }
+                    
+                    
+                    Text("Your Listings")
+                        .font(.title2)
+                    VStack {
+                        List {
+
+                        ForEach(newDonations.donationArray, id: \.uuid) { donation in
+                                HStack {
+                                    donation.image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                    Text(donation.name)
+                                }
+                                
+                            }
+                        }
+                    }
+                        
+//                        VStack {
+//                            
+//                            List {
+//                                HStack {
+//                                    Image("couch")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 50, height: 50)
+//                                    Text("Couch")
+//                                    
+//                                }
+//                                
+//                                
+//                                
+//                            }
+//                            
+//                        }
+                    
+                    
+                    Spacer()
+                }
+                
+                .padding()
+                .background(Color.lightPurple)
+
+            }
+
+        }
+            
+            
+        //}
+    
 }
 
 #Preview {
     ListItem()
+        .environmentObject(NewDonation())
 }

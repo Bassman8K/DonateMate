@@ -9,7 +9,30 @@ import SwiftUI
 
 struct CommunityView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.lightPurple.edgesIgnoringSafeArea(.all)
+            VStack {
+                HStack {
+                    Text("Community")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .scaledToFit()
+                        .foregroundStyle(.darkPurple)
+                    Spacer()
+                    Image("cornerlogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .padding()
+                }
+                .padding(.top, 10)
+                Spacer()
+            }
+            
+            
+        }
+
+        
     }
 }
 

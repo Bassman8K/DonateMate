@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+class NewDonation : ObservableObject {
+    
+    @Published var donationArray: [Donation] = []
+}
+
 struct OnboardView: View {
-    @State private var isActive = false
+    @State var isActive : Bool = false
+    @StateObject var newDonations  = NewDonation()
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -47,7 +54,16 @@ struct OnboardView: View {
                 LaunchView() // Replaces OnboardView completely after navigating
             }
         }
+//        .padding()
+//        VStack{
+//            createListing()
+//            CharityDonationsView()
+//        }
+//        .environmentObject(newDonations)
+
     }
+    
+    
 }
 #Preview {
     OnboardView()
