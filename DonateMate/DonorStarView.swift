@@ -17,7 +17,7 @@ struct DonorStarView: View {
                     .scaledToFit()
                 Spacer()
                 ZStack {
-                    
+                   Image("")
                 }
             }
         }
