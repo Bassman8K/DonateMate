@@ -49,7 +49,8 @@ struct ItemDetails: View {
     
     @EnvironmentObject var newPickups: NewPickup
     @State private var date = Date()
-    
+    @State private var navigateToDonortInputSuccessfulView = false
+
     @State private var chosenDate: String = "UNSELECTED"
    
     var body: some View {
@@ -204,12 +205,16 @@ struct ItemDetails: View {
                 Button("Pickup") {
                     let newPickup = Pickup(uuid: UUID().uuidString, name: itemName, image: itemImage, distance: "3km", description: description, address: address, instructions: instructions, selectedDate: chosenDate, time: date, recipientName: recipient )
                     newPickups.pickupArray.append(newPickup)
+
                 }
-                .font(.headline)
+                .font(.title2)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding()
+                .frame(width: 120, height: 45)
                 .background(Color("darkPurple")) // Use primary app color
-                .cornerRadius(12)
+                .cornerRadius(10)
+                .shadow(radius: 5)
             }
             // .padding()
             

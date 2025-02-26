@@ -20,34 +20,23 @@ struct ThankYouView: View {
     
     var body: some View {
         ZStack {
-            
-        
             Color("lightPurple")
                 .ignoresSafeArea()
-            Text("Thank you Donor")
-                .fontWeight(.bold)
-                .font(.largeTitle)
-                .foregroundStyle(.green)
-                .padding()
-                .frame(width: 300, height: 100)
-                .position(x: 200, y: 90)
+            
             VStack {
-                // Logo (Top Right)
                 HStack {
                     Spacer()
-                    Image("cornerlogo")
+                    Image("horizontallogo")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 60)
-                        .padding(.trailing)
+                        .scaledToFit()
+                        .padding(.horizontal, 50)
                 }
                 .padding(.top, 10)
                 
-                // Title
-                Text("Thank You Message")
-                    .font(.largeTitle).bold()
-                    .foregroundColor(Color("darkPurple"))
-                    .padding(.top, 10)
+                Image("thankMessage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 320, height: 103)
                 //  Added Form to organize sections
                 Form {
                     // Section for Image Picker
@@ -108,10 +97,6 @@ struct ThankYouView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal)
                 .padding(.top, -100)
-                
-                
-                
-                
             }
             .padding()
         }

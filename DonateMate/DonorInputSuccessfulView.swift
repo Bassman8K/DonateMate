@@ -14,34 +14,27 @@ struct DonorInputSuccessfulView: View {
                 .resizable()
                 .scaledToFit()
                 .padding(.horizontal, 50)
-            
             Spacer()
-            
             Image("checksymbol")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250, height: 250)
-            
             Spacer()
-            
             VStack(alignment: .center, spacing: 10) {
-                Text("Your donated item has been successfully uploaded")
-                    .font(.title)
+                Text("Your donated item has been successfully uploaded.")
+                    .font(.title2)
                     .fontWeight(.bold)
                     .foregroundStyle(Color("darkPurple"))
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
-
                 Text("Sit and relax while your item is being worked on.")
-                    .font(.title3)
+                    .font(.subheadline)
                     .foregroundStyle(.black)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(.horizontal, 30)
-            
             Spacer()
-            
             NavigationLink(destination: DonorTabView()) {
                 Text("Go back to home")
                     .font(.title2)
@@ -53,7 +46,6 @@ struct DonorInputSuccessfulView: View {
                     .cornerRadius(20)
                     .shadow(radius: 3)
             }
-            
             Spacer()
         }
         .padding(.vertical, 30)
@@ -61,7 +53,6 @@ struct DonorInputSuccessfulView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
 #Preview {
     DonorInputSuccessfulView()
 }
