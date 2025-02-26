@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DonorPickupView: View {
+    let listing: Listing
     var body: some View {
         ZStack {
             VStack {
@@ -30,5 +31,5 @@ struct DonorPickupView: View {
 }
 
 #Preview {
-    DonorPickupView()
+    DonorPickupView(listing: )
 }
