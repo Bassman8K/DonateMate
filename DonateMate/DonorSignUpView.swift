@@ -92,7 +92,7 @@ struct DonorSignUpView: View {
                     .padding(5)
 
                 // Sign In Button
-                NavigationLink(destination: DonorHomeView()) {
+                NavigationLink(destination: DonorTabView()) {
                     Text("Sign In")
                         .font(.title2)
                         .fontWeight(.semibold)

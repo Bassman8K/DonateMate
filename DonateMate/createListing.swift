@@ -27,7 +27,6 @@ struct createListing: View {
     @EnvironmentObject var newDonations: NewDonation
 
     var body: some View {
-        //
         VStack {
             
             Text("List an item")
@@ -81,6 +80,7 @@ struct createListing: View {
                 
             }
             .background(Color.clear)
+            
 
             Button("List") {
                 //            numItems += 1
