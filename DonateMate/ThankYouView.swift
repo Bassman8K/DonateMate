@@ -96,7 +96,7 @@ struct ThankYouView: View {
                     .buttonStyle(.borderless)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal)
-                .padding(.top, -100)
+               // .padding(.top, -100)
             }
             .padding()
         }

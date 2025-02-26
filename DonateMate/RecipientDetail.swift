@@ -10,18 +10,31 @@ import SwiftUI
 struct recipientDetail: View {
     let recipient: Recipient
     var body: some View {
-        Form {
-            Section {
-                Text(recipient.name)
-                    .font(.title)
+        ZStack {
+          
+            VStack {
+                Form {
+                    Section {
+                        Text(recipient.name)
+                            .font(.title)
+                    }
+                    Text("Needs")
+                    Section{
+                        Text(recipient.needs)
+                    }
+                    Text(recipient.address)
+                    
+                }
+               
+
+
             }
-            Text("Needs")
-            Section{
-                Text(recipient.needs)
-            }
-            Text(recipient.address)
             
+
         }
+       
+
+
     }
 }
 
